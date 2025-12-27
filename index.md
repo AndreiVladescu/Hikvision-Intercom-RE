@@ -85,28 +85,19 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
 <script src="./js/pcb-gallery.js" defer></script>
 
-<figure>
-  <img
-    src="./img/banner.png"
-    alt="Intercom System"
-    width="40%">
-</figure>
-
 # Introduction
 
 Commercial videointercom systems are found in front of most buildings, public or residential. While older models use analog systems to call and display video, these are gradually phased out, as cheaper digital systems take over market and use modern TCP/IP networking.
 
 One such device is the Hikvision DS-KV6113-WPE1 IP Video Intercom system, which aims to bring TCP/IP and video calling to affordable standards. As with most cheap devices, there has to be a corner-cut in costs somewhere, and this article will hopefully shed some light on the current state of security this particular model implements.
 
-<img src="./img/front_view.png" width="80%">
+<img src="./img/front_view.png" width="50%">
 
 # PCB Analysis
 
 The device has 2 PCBs that are connected via a mezzanine connector. The black PCB holds the majority of the connectors, including the RJ45 and exterior-facing connectors, as well as the PoE and voltage regulation circuitry.
 
 The microprocessor is an HK-2019-A16B TRXM7500, specially made for Hikvision. The flash IC, MX25L25645G holds 256Mb of memory and holds the entire firmware of the device.
-
-## PCB gallery
 
 <div class="swiper pcb-swiper" id="pcb-swiper">
   <div class="swiper-wrapper">
@@ -153,3 +144,62 @@ The microprocessor is an HK-2019-A16B TRXM7500, specially made for Hikvision. Th
   <div id="pcb-caption">CAPTION PLACEHOLDER</div>
   <button type="button" id="pcb-next" aria-label="Next image">Next ›</button>
 </div>
+
+# Firmware Analysis
+
+## Initial sniffing
+
+Chip-off extraction was performed on the MX25L25645G flash IC, and the contents were read using a flash reader. Afterwards, `binwalk3` was used to extract the data: two JFFS partitions and a CramFS partition were found, alongside a U-Boot bootloader.
+
+At the U-Boot offset we can find a lot of interesting information, some of which would probably be printed on the debug UART console, if the console is available:
+
+- console settings and bootargs: `console=ttyS0,115200`
+- TFTP info to download new image: `Download Filename '%s'`
+- IPv4 of the device, server and gateway
+- the Linux Kernel to be loaded: `uImage`
+- bootargs of the images to be loaded: `default=cramfsload 0x80400000 uImage cramfsload 0x80800000 ramdisk.gz`
+
+The uImage is found on the CramFS partition, and it's a `Linux-3.18.20`. The ramdisk has a ubuntu image, with it's own rootfs on it and binaries.
+
+The JFFS partition at `0x60438` holds only the `dev.bin` binary, and the other JFFS at `0xA02E0` holds a backup partition, with configuration data and crypto stuff, such as server keys and certificates. However, the CramFS partition at `0x1E0000` hides the bulk of the system files.
+
+## Further digging
+
+After the initial reccoinassance, the CramFS partition was targeted, as it holds a lot of interesting files:
+
+- device tree blobs `DSXXXX`
+- start script `start.sh`
+- the ramdisk & Linux image
+- audio files
+- DSP & BSP files (for image sensor, maybe?)
+- Open source license files
+- an `.xls` device list config file
+- the digicapkeyArm.ko kernel module, important for HikVision security updates
+- web server files
+- `visdoor` folder containing `hicore` binary
+- other binaries & config files
+
+The ramdisk decompressed image contains the linux regular file system:
+
+```
+.
+├── bin
+├── etc
+│   ├── dropbear
+│   ├── init.d
+│   ├── iscsi
+│   │   └── ifaces
+│   ├── rcS.d
+│   └── udev
+│       └── rules.d
+├── lib
+├── sbin
+├── usr
+│   ├── bin
+│   └── sbin
+└── var
+    └── run
+
+17 directories
+```
+ 
