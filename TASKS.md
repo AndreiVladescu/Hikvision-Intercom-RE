@@ -10,21 +10,21 @@
 - [x] `servercert.pem` / `serverkey.pem` decoded
 
 ## Phase 2 — Deep Analysis (IN PROGRESS)
-- [ ] Extract JFFS2 backup partition (0xA02E0, needs `jefferson`)
+- [x] Run EMBA — 4,000 CVEs, 105 exploits, 12 Metasploit; JTR hash crack (failed); STACS key scan
+- [x] Root password hash crack attempt (JTR: uncracked after 1 hour)
 - [ ] Reverse `dec` binary — find encryption algorithm used on start.sh
-- [ ] Analyze `digicapkeyArm.ko` (modinfo + strings + Ghidra)
-- [ ] Attempt root password hash crack (`hashcat -m 1400` unsalted SHA-256)
+- [ ] Analyze `digicapkeyArm.ko` (Ghidra — find embedded key material)
 - [ ] Analyze web server files (`webs.tar.gz`, `web4.0_help.tar.gz`) for web vulns
-- [ ] Analyze `base.tar.lzma` and `lib.tar.lzma`
 - [ ] Analyze `sipServer` binary
+- [ ] Verify CVE-2021-36260 command injection against ISAPI endpoints in hicore
 - [ ] Dynamic analysis / emulation with QEMU (ARM)
-- [ ] Run EMBA for automated CVE correlation (user offered)
 
 ## Phase 3 — Reporting (IN PROGRESS)
-- [x] Initial findings compiled
-- [ ] Cross-reference all findings with NVD / CVE database
-- [ ] Complete `REPORT.md` — full professional report
-- [ ] Review and finalize `TEMPLATE.md`
+- [x] Initial findings compiled (F-01 through F-11)
+- [x] EMBA findings integrated (F-12 through F-15, SBOM CVE counts, CVE table, stats appendix)
+- [x] `TEMPLATE.md` created
+- [ ] Final review pass on `REPORT.md`
+- [ ] Add dynamic analysis findings when available
 
 ## Phase 4 — Optional Further Work
 - [ ] Live traffic capture (network sniff with device online)
