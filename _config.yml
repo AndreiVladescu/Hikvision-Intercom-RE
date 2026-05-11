@@ -5,6 +5,8 @@ description: Deep-dive into a Hikvision intercom system.
 exclude:
   - "*.bin"
   - "*.BIN"
-  - TEMPLATE.tex
+  - TEMPLATE.md
   - report.css
   - TASKS.md
+  - binary_blob_data.txt
+  - strings_output.txt
