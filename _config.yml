@@ -3,7 +3,6 @@ remote_theme: pages-themes/slate@v0.2.0
 description: Deep-dive into a Hikvision intercom system.
 
 exclude:
-  - extractions/
   - "*.bin"
   - "*.BIN"
   - TEMPLATE.tex
