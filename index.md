@@ -170,15 +170,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
 <script src="./js/pcb-gallery.js" defer></script>
 
-# Hikvision DS-KV6113-WPE1(C) — Security Analysis
-
-**Researcher:** Andrei Vladescu &nbsp;·&nbsp; **Date:** 2026-05-10 &nbsp;·&nbsp; **Status:** Draft — Phase 2 ongoing
-
-<div class="verdict">
-<strong>Verdict: critically poor security posture.</strong> The device ships with intentional backdoors, cryptographic keys shared across every unit on the market, an EOL kernel carrying 3,856 CVEs with Metasploit-ready exploits, and actively exfiltrates biometric data to Hikvision cloud infrastructure — all without user knowledge or consent.
-</div>
-
----
 
 ## Key Findings
 
@@ -190,15 +181,7 @@
   <li><span class="badge badge-high">HIGH</span> <strong>93 % of binaries lack RELRO, 84 % lack stack canaries</strong> — <code>hicore</code> alone has 300 <code>strcpy</code> calls, 41 <code>system()</code> calls, and 2,659 potential format string bugs.</li>
 </ul>
 
-<div class="stats">
-  <div class="stat"><span class="num">4,000</span><span class="lbl">Total CVEs</span></div>
-  <div class="stat"><span class="num">105</span><span class="lbl">Public exploits</span></div>
-  <div class="stat"><span class="num">12</span><span class="lbl">Metasploit modules</span></div>
-  <div class="stat"><span class="num">15</span><span class="lbl">Findings</span></div>
-  <div class="stat"><span class="num">4,380</span><span class="lbl">CWE issues</span></div>
-</div>
-
-<a class="cta" href="REPORT.md">Read the Full Report →</a>
+<a class="cta" href="REPORT">Read the Full Report →</a>
 
 ---
 
@@ -385,5 +368,3 @@ http://10.19.132.120:6120/pic?=d61if98e*b8ai034-59562b--49a411810d50fi0b6*=ids1*
 `10.19.132.120` is an internal Hikvision RFC-1918 address. The obfuscated parameter string looks like a test-harness artifact. It was never stripped before the release build. A second internal address, `10.192.74.191`, also appears with no documentation of its purpose.
 
 ---
-
-<a class="cta" href="REPORT.md">Full Report with all 15 findings →</a>
