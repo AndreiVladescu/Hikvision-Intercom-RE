@@ -1,0 +1,438 @@
+\documentclass[12pt,a4paper]{article}
+
+% ── Encoding & fonts ──────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% ── Page geometry ─────────────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% ── Colour ────────────────────────────────────────────────────────────────────
+\usepackage[table]{xcolor}
+\definecolor{critical}{HTML}{C0392B}
+\definecolor{high}{HTML}{E67E22}
+\definecolor{medium}{HTML}{F1C40F}
+\definecolor{low}{HTML}{27AE60}
+\definecolor{codebg}{HTML}{F4F4F4}
+\definecolor{tabhead}{HTML}{2C3E50}
+\definecolor{tabheadtext}{HTML}{FFFFFF}
+\definecolor{rowalt}{HTML}{ECF0F1}
+
+% ── Tables ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{longtable}
+\renewcommand{\arraystretch}{1.3}
+
+% ── Code / verbatim ───────────────────────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=false,
+  frame=single,
+  framerule=0.4pt,
+  rulecolor=\color{gray!40},
+  xleftmargin=6pt,
+  xrightmargin=6pt,
+  aboveskip=8pt,
+  belowskip=8pt,
+}
+
+% ── Graphics ──────────────────────────────────────────────────────────────────
+\usepackage{graphicx}
+\graphicspath{{./img/}}
+
+% ── Headers / footers ─────────────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Security Analysis Report — [Device Name]}}
+\fancyhead[R]{\small\textit{[Classification]}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ── Section formatting ────────────────────────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries\color{tabhead}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\normalsize\itshape}{}{0em}{}
+
+% ── Hyperlinks & PDF metadata ─────────────────────────────────────────────────
+\usepackage[
+  colorlinks=true,
+  linkcolor=tabhead,
+  urlcolor=tabhead,
+  pdftitle={Security Analysis Report},
+  pdfauthor={[Analyst]},
+]{hyperref}
+
+% ── Misc utilities ────────────────────────────────────────────────────────────
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{mdframed}
+
+% ── Severity badge command ────────────────────────────────────────────────────
+\newcommand{\critical}[1]{\textcolor{white}{\colorbox{critical}{\textbf{#1}}}}
+\newcommand{\high}[1]{\textcolor{white}{\colorbox{high}{\textbf{#1}}}}
+\newcommand{\medium}[1]{\colorbox{medium}{\textbf{#1}}}
+\newcommand{\low}[1]{\textcolor{white}{\colorbox{low}{\textbf{#1}}}}
+
+% ── Finding environment ────────────────────────────────────────────────────────
+\newenvironment{finding}[1]{%
+  \begin{mdframed}[linecolor=gray!40, backgroundcolor=white,
+    innertopmargin=6pt, innerbottommargin=6pt]
+  \textbf{#1}\\[4pt]
+}{%
+  \end{mdframed}
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ── Title page ────────────────────────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+
+  {\Huge\bfseries Security Analysis Report}\\[0.5em]
+  {\Large [Device Name] — Firmware Reverse Engineering}\\[3cm]
+
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Field}           & \textbf{Value} \\
+    \midrule
+    Target Device            & [Manufacturer Model Number] \\
+    Firmware Source          & [e.g., Chip-off flash read / OTA download / vendor portal] \\
+    Analyst                  & [Name] \\
+    Report Date              & [YYYY-MM-DD] \\
+    Report Status            & [Draft / Final] \\
+    Classification           & [e.g., Security Research / Confidential / Public] \\
+    \bottomrule
+  \end{tabular}
+
+  \vfill
+  {\small\textit{Report template — replace all [bracketed] placeholders before use.}}
+\end{titlepage}
+
+\newpage
+
+% ── Table of contents ─────────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% =============================================================================
+\section{Executive Summary}\label{sec:exec-summary}
+% =============================================================================
+
+[2–4 paragraphs. Cover:
+\begin{itemize}
+  \item What the device is and why it was analyzed
+  \item Overall security posture (one-sentence verdict)
+  \item The 2–3 most severe findings in plain language
+  \item Recommended immediate action
+\end{itemize}]
+
+% =============================================================================
+\section{Target Overview}\label{sec:target-overview}
+% =============================================================================
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \rowcolor{tabhead}\textcolor{tabheadtext}{\textbf{Property}} &
+  \textcolor{tabheadtext}{\textbf{Detail}} \\
+  \midrule
+  \textbf{Model}            & \\
+  \rowcolor{rowalt}
+  \textbf{Type}             & \\
+  \textbf{Processor}        & \\
+  \rowcolor{rowalt}
+  \textbf{Flash IC}         & \\
+  \textbf{OS}               & \\
+  \rowcolor{rowalt}
+  \textbf{Firmware Version} & \\
+  \textbf{Connectivity}     & \\
+  \bottomrule
+\end{tabularx}
+
+\vspace{1em}
+
+% Uncomment once ./img/device.png exists:
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.6\linewidth]{device.png}
+%   \caption{Device photo}
+% \end{figure}
+
+\subsection{PCB Overview}
+
+[Describe PCB layout, notable ICs, and extraction method.]
+
+% =============================================================================
+\section{Methodology}\label{sec:methodology}
+% =============================================================================
+
+\subsection{Firmware Acquisition}
+
+[Describe how firmware was obtained: chip-off, UART, OTA, etc.]
+
+\subsection{Firmware Parsing}
+
+\begin{lstlisting}
+$ binwalk [firmware.bin]
+
+DECIMAL      HEX         DESCRIPTION
+-----------  ----------  -------------------------------------------
+[output here]
+\end{lstlisting}
+
+\subsection{Tools Used}
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \rowcolor{tabhead}\textcolor{tabheadtext}{\textbf{Tool}} &
+  \textcolor{tabheadtext}{\textbf{Purpose}} \\
+  \midrule
+  binwalk / binwalk3  & Partition extraction \\
+  \rowcolor{rowalt}
+  debugfs             & ext2/ext3 filesystem exploration \\
+  strings             & Plaintext extraction \\
+  \rowcolor{rowalt}
+  openssl             & Certificate / key analysis \\
+  Ghidra / IDA Pro    & Binary disassembly \\
+  \rowcolor{rowalt}
+  QEMU                & Dynamic emulation \\
+  {[other]}           & [purpose] \\
+  \bottomrule
+\end{tabularx}
+
+% =============================================================================
+\section{Firmware Structure}\label{sec:firmware-structure}
+% =============================================================================
+
+\subsection{Partition Map}
+
+\begin{tabularx}{\linewidth}{llllX}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{Offset}} &
+  \textcolor{tabheadtext}{\textbf{Size}} &
+  \textcolor{tabheadtext}{\textbf{Type}} &
+  \textcolor{tabheadtext}{\textbf{Contents}} \\
+  \midrule
+  \texttt{0x00000} & & & \\
+  \rowcolor{rowalt}
+  \texttt{0x?????} & & & \\
+  \bottomrule
+\end{tabularx}
+
+\subsection{Boot Process}
+
+[Describe bootloader, boot arguments, kernel load, init system.]
+
+\subsection{Key Partition Contents}
+
+[Table or tree of notable files per partition.]
+
+% =============================================================================
+\section{Findings Summary}\label{sec:findings-summary}
+% =============================================================================
+
+\begin{tabularx}{\linewidth}{llXll}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{ID}} &
+  \textcolor{tabheadtext}{\textbf{Title}} &
+  \textcolor{tabheadtext}{\textbf{Severity}} &
+  \textcolor{tabheadtext}{\textbf{CVSS v3 (est.)}} \\
+  \midrule
+  F-01 & [Title] & \critical{CRITICAL} & 9.x \\
+  \rowcolor{rowalt}
+  F-02 & [Title] & \high{HIGH}         & 8.x \\
+  F-03 & [Title] & \high{HIGH}         & 7.x \\
+  \rowcolor{rowalt}
+  F-04 & [Title] & \medium{MEDIUM}     & 6.x \\
+  F-05 & [Title] & \low{LOW}           & 3.x \\
+  \bottomrule
+\end{tabularx}
+
+% =============================================================================
+\section{Detailed Findings}\label{sec:detailed-findings}
+% =============================================================================
+
+% ── F-01 ──────────────────────────────────────────────────────────────────────
+\subsection*{F-01 — [Finding Title]}
+\addcontentsline{toc}{subsection}{F-01 — [Finding Title]}
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \textbf{Severity}       & \critical{CRITICAL} \\
+  \rowcolor{rowalt}
+  \textbf{CVSS v3 (est.)} & [score] ([vector string]) \\
+  \textbf{Location}       & [file path or binary name] \\
+  \rowcolor{rowalt}
+  \textbf{CWE}            & [CWE-NNN: Name] \\
+  \textbf{Related CVEs}   & [CVE-YYYY-NNNNN if applicable] \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection*{Description}
+[Describe the finding in detail. What was found, where, and how.]
+
+\subsubsection*{Evidence}
+\begin{lstlisting}
+[paste relevant strings, code, or binary output]
+\end{lstlisting}
+
+\subsubsection*{Impact}
+[What can an attacker do with this finding? Concrete impact.]
+
+\subsubsection*{Recommendation}
+[Specific remediation steps for the vendor.]
+
+\bigskip\hrule\bigskip
+
+% ── F-02 ──────────────────────────────────────────────────────────────────────
+\subsection*{F-02 — [Finding Title]}
+\addcontentsline{toc}{subsection}{F-02 — [Finding Title]}
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \textbf{Severity}       & \high{HIGH} \\
+  \rowcolor{rowalt}
+  \textbf{CVSS v3 (est.)} & [score] ([vector string]) \\
+  \textbf{Location}       & [file path or binary name] \\
+  \rowcolor{rowalt}
+  \textbf{CWE}            & [CWE-NNN: Name] \\
+  \textbf{Related CVEs}   & [CVE-YYYY-NNNNN if applicable] \\
+  \bottomrule
+\end{tabularx}
+
+\subsubsection*{Description}
+[Describe the finding in detail. What was found, where, and how.]
+
+\subsubsection*{Evidence}
+\begin{lstlisting}
+[paste relevant strings, code, or binary output]
+\end{lstlisting}
+
+\subsubsection*{Impact}
+[What can an attacker do with this finding? Concrete impact.]
+
+\subsubsection*{Recommendation}
+[Specific remediation steps for the vendor.]
+
+\bigskip
+\textit{(Repeat the above structure for each additional finding.)}
+
+% =============================================================================
+\section{Software Bill of Materials (SBOM)}\label{sec:sbom}
+% =============================================================================
+
+\begin{tabularx}{\linewidth}{lllX}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{Component}} &
+  \textcolor{tabheadtext}{\textbf{Version}} &
+  \textcolor{tabheadtext}{\textbf{License}} &
+  \textcolor{tabheadtext}{\textbf{Status}} \\
+  \midrule
+  Linux Kernel & & GPL v2 & [Current / EOL] \\
+  \rowcolor{rowalt}
+  {[component]} & & & \\
+  \bottomrule
+\end{tabularx}
+
+% =============================================================================
+\section{CVE Cross-Reference}\label{sec:cve}
+% =============================================================================
+
+\begin{tabularx}{\linewidth}{llXX}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{CVE}} &
+  \textcolor{tabheadtext}{\textbf{Severity}} &
+  \textcolor{tabheadtext}{\textbf{Component}} &
+  \textcolor{tabheadtext}{\textbf{Applicability}} \\
+  \midrule
+  CVE-YYYY-NNNNN & \critical{CRITICAL} & [component] &
+    [Confirmed / Likely / Needs verification] \\
+  \bottomrule
+\end{tabularx}
+
+% =============================================================================
+\section{Attack Surface Map}\label{sec:attack-surface}
+% =============================================================================
+
+\begin{lstlisting}
+[ASCII diagram showing network, physical, and outbound attack surface]
+\end{lstlisting}
+
+% =============================================================================
+\section{Recommendations}\label{sec:recommendations}
+% =============================================================================
+
+\subsection{Immediate Actions (Deployers)}
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{Priority}} &
+  \textcolor{tabheadtext}{\textbf{Action}} \\
+  \midrule
+  \textbf{P0} & \\
+  \rowcolor{rowalt}
+  \textbf{P1} & \\
+  \textbf{P2} & \\
+  \bottomrule
+\end{tabularx}
+
+\subsection{Vendor Remediation Required}
+
+\begin{tabularx}{\linewidth}{lX}
+  \toprule
+  \rowcolor{tabhead}
+  \textcolor{tabheadtext}{\textbf{ID}} &
+  \textcolor{tabheadtext}{\textbf{Requirement}} \\
+  \midrule
+  R-01 & \\
+  \rowcolor{rowalt}
+  R-02 & \\
+  \bottomrule
+\end{tabularx}
+
+% =============================================================================
+\appendix
+% =============================================================================
+
+\section{Partition Table}\label{app:partition-table}
+
+\begin{lstlisting}
+[binwalk output]
+\end{lstlisting}
+
+\section{Filesystem Tree}\label{app:fs-tree}
+
+\begin{lstlisting}
+[tree output or debugfs listing]
+\end{lstlisting}
+
+\section{Certificate Details}\label{app:certs}
+
+\begin{lstlisting}
+[openssl x509 -text output]
+\end{lstlisting}
+
+\section{Raw Strings of Interest}\label{app:strings}
+
+\begin{lstlisting}
+[curated strings grouped by category]
+\end{lstlisting}
+
+\end{document}
