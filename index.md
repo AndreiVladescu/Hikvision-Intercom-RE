@@ -171,20 +171,6 @@
 <script src="./js/pcb-gallery.js" defer></script>
 
 
-## Key Findings
-
-<ul class="findings">
-  <li><span class="badge badge-critical">CRITICAL</span> <strong>Shared TLS private key hardcoded in firmware</strong> — identical across every deployed unit; full MITM trivially achievable from the public firmware image.</li>
-  <li><span class="badge badge-critical">CRITICAL</span> <strong>Backdoor shell (<code>psh</code>) with 4 hardcoded RSA public keys</strong> — Hikvision's own service-access mechanism grants root to anyone who computes the challenge response offline.</li>
-  <li><span class="badge badge-critical">CRITICAL</span> <strong>Linux 3.18.20 kernel — 3,856 CVEs, 95 exploits</strong> — includes Dirty COW (CVE-2016-5195) and two overlayfs exploits with Metasploit modules; rated "probable" for this kernel.</li>
-  <li><span class="badge badge-high">HIGH</span> <strong>Face recognition images uploaded to Hikvision cloud</strong> — biometric data of building visitors sent without consent, in apparent violation of GDPR Article 9.</li>
-  <li><span class="badge badge-high">HIGH</span> <strong>93 % of binaries lack RELRO, 84 % lack stack canaries</strong> — <code>hicore</code> alone has 300 <code>strcpy</code> calls, 41 <code>system()</code> calls, and 2,659 potential format string bugs.</li>
-</ul>
-
-<a class="cta" href="REPORT">Read the Full Report →</a>
-
----
-
 ## Introduction
 
 Commercial video intercom systems are found at the entrance of most buildings. Older analog systems are steadily being replaced by TCP/IP-connected units that offer video calling, face recognition, and cloud management at consumer prices. The Hikvision DS-KV6113-WPE1(C) is one such device — widely deployed in residential and commercial buildings across Europe and Asia.
@@ -368,3 +354,5 @@ http://10.19.132.120:6120/pic?=d61if98e*b8ai034-59562b--49a411810d50fi0b6*=ids1*
 `10.19.132.120` is an internal Hikvision RFC-1918 address. The obfuscated parameter string looks like a test-harness artifact. It was never stripped before the release build. A second internal address, `10.192.74.191`, also appears with no documentation of its purpose.
 
 ---
+
+<a class="cta" href="REPORT">Read the Full Report →</a>
