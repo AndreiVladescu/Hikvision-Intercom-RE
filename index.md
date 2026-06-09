@@ -272,6 +272,37 @@ Beyond the Linux 3.18.20 kernel and ramdisk, notable files include:
 
 The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), covering CVE correlation, binary hardening audit, CWE static analysis, Ghidra/semgrep decompilation, credential scanning, and kernel exploit matching.
 
+<div class="stats">
+  <div class="stat"><span class="num">19</span><span class="lbl">Total Findings</span></div>
+  <div class="stat"><span class="num">4</span><span class="lbl">Critical</span></div>
+  <div class="stat"><span class="num">9</span><span class="lbl">High</span></div>
+  <div class="stat"><span class="num">6</span><span class="lbl">Medium</span></div>
+  <div class="stat"><span class="num">4,000</span><span class="lbl">CVEs Identified</span></div>
+  <div class="stat"><span class="num">105</span><span class="lbl">Public Exploits</span></div>
+</div>
+
+<ul class="findings">
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-01</strong> — Hardcoded TLS private key shared across all units</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-11</strong> — Severely outdated software stack: 4,000 CVEs, 47 Critical, 105 public exploits</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260: unauthenticated command injection via ISAPI endpoint (Metasploit available)</li>
+  <li><span class="badge badge-critical">CRITICAL 9.1</span> <strong>F-18</strong> — sipServer SQL injection via unauthenticated SIP REGISTER (no prepared statements)</li>
+  <li><span class="badge badge-high">HIGH 8.8</span> <strong>F-12</strong> — Kernel privilege escalation: Dirty COW + overlayfs, confirmed Metasploit modules</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-12-28, shared across all units</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-13</strong> — Binary hardening failures: 93% lack RELRO, 84% lack stack canaries, NX absent on hicore</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-14</strong> — 300 unsafe strcpy, 41 system() calls, 2,659 format string issues in hicore alone</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-19</strong> — ISAPI serial bus passthrough: authenticated HTTP-to-RS232/RS485 bridge, no additional access control</li>
+  <li><span class="badge badge-high">HIGH 7.5</span> <strong>F-04</strong> — Cloud telemetry & phone-home endpoints hardcoded in hicore</li>
+  <li><span class="badge badge-high">HIGH 7.2</span> <strong>F-02</strong> — psh backdoor shell with 4 hardcoded RSA keys; Debug mode accessible to key holder only</li>
+  <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-15</strong> — 395 instances of weak file permissions</li>
+  <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-16</strong> — da_info hidden command surface: resetPasswd/resetParam accessible via direct invocation</li>
+  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-07</strong> — Preset SSH host keys identical across all units</li>
+  <li><span class="badge badge-medium">MEDIUM 6.4</span> <strong>F-06</strong> — Encrypted boot script; 3DES key extracted from digicapkeyArm.ko .rodata</li>
+  <li><span class="badge badge-medium">MEDIUM 5.9</span> <strong>F-08</strong> — Telnet can be enabled via config; no encryption</li>
+  <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-09</strong> — Hardcoded internal Hikvision IP addresses in production binary</li>
+  <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-10</strong> — Hardcoded Chinese DNS servers (114.114.114.114 / 223.5.5.5)</li>
+  <li><span class="badge badge-medium">MEDIUM 4.5</span> <strong>F-05</strong> — Hik-Connect enrollment routes identity-linked event images to Hikvision cloud (opt-in)</li>
+</ul>
+
 ---
 
 ## Standout Discoveries
@@ -310,24 +341,20 @@ Every DS-KV6113-WPE1(C) presents this same certificate. Anyone who has downloade
 
 ---
 
-### Your visitors' faces are being sent to China
+### Hik-Connect uploads identity-linked images when the building manager opts in
 
-The `alarm_2000` module inside `hicore` uploads face-recognition captures and access-control events to Hikvision cloud via S3-style bucket POSTs. The source paths are right there in the binary strings:
+The `alarm_2000` module inside `hicore` can upload face-recognition event captures to Hikvision's cloud via S3-style presigned URL POSTs. Static disassembly of `event_upload_proc` confirms the upload path is gated by an `ezviz_enable` flag (default `0`) in the on-device SQLite database — it is only set to `1` when a building manager actively enrolls the device in Hik-Connect.
+
+What is uploaded when enabled: a JPEG frame at the moment of a face-match event (`pic_info.picPoolIdx`) linked to the enrolled person's employee number (`pic_info.employeeNo`). Biometric templates themselves are not uploaded; `faceDataUrl` and `infraredFaceDataUrl` are local ISAPI endpoints.
+
+Four hardcoded cloud telemetry endpoints — including `www.hikvision.com/RaCM/trackExt/ver10` — are compiled directly into `hicore` and appear to be called independently of the Hik-Connect enrollment state. Whether those specific calls are triggered in practice requires live traffic capture to confirm.
+
+The source paths embedded in the binary:
 
 ```
 accessControl/authorityManagement/authInfoUpload.c
 accessControl/eventCtrl/event_upload.c
 ```
-
-The SQLite schema stored on-device tells the rest of the story:
-
-```sql
-CREATE TABLE face_param (
-    inter_orbital_distance, max_distance, eco_mode_enable,
-    enable_mask, pass_contral, ir_1vn_masktonormal_sim ...);
-```
-
-Four hardcoded cloud endpoints — including `www.hikvision.com/RaCM/trackExt/ver10` — are called without any user-visible opt-in or disclosure.
 
 ---
 
@@ -352,6 +379,52 @@ http://10.19.132.120:6120/pic?=d61if98e*b8ai034-59562b--49a411810d50fi0b6*=ids1*
 ```
 
 `10.19.132.120` is an internal Hikvision RFC-1918 address. The obfuscated parameter string looks like a test-harness artifact. It was never stripped before the release build. A second internal address, `10.192.74.191`, also appears with no documentation of its purpose.
+
+---
+
+### CVE-2021-36260 is probably exploitable on this device
+
+Hikvision confirmed in 2021 that a broad range of their products — including video intercom units — contained an unauthenticated command injection vulnerability in the HTTP server. The attack requires a single unauthenticated `PUT` request:
+
+```http
+PUT /ISAPI/System/configurationData HTTP/1.1
+Host: <device-ip>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<language>$(id>/tmp/pwned)</language>
+```
+
+Static analysis of this firmware confirms:
+
+- The endpoint `/ISAPI/System/configurationData` is present in `hicore`'s ISAPI dispatch table
+- `hicore` imports `system()`, `popen()`, `execve()`, `fork()`, and `vfork()`
+- The version string `V2.1.5` is compiled into the binary — within the affected range (before V2.2.0)
+- A Metasploit module for this CVE is publicly available
+
+A successful exploit yields a root shell over the network with no credentials.
+
+<div class="verdict"><strong>Combined exploit chain:</strong> CVE-2021-36260 RCE → unprivileged shell → Dirty COW (CVE-2016-5195) → root. Every step has a public exploit or Metasploit module.</div>
+
+---
+
+### SIP REGISTER message can inject SQL into the device database
+
+`sipServer` manages a SQLite database of registered SIP clients — intercoms, indoor monitors, and room units. It builds every SQL query by substituting SIP header fields directly into format strings, then executing them raw:
+
+```c
+// From sipServer strings — no prepared statements anywhere
+sprintf(sql, "WHERE user_name = '%s';", sip_from_header);
+sqlite3_exec(db, sql, ...);
+```
+
+No `sqlite3_prepare_v2`, `sqlite3_bind_text`, or any other parameterisation function exists in the binary's import table. Any device on the same LAN can send a crafted SIP REGISTER with a SQL-injection payload in the `From:` header — no authentication required — and read or modify the credential database:
+
+```
+REGISTER sip:device SIP/2.0
+From: <sip:' OR '1'='1@attacker>
+```
+
+The `reg_user` table contains `login_password`, `reg_password`, device serial numbers, and MAC addresses for every registered unit.
 
 ---
 
