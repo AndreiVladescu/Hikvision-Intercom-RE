@@ -287,7 +287,7 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
   <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260: unauthenticated command injection via ISAPI endpoint (Metasploit available)</li>
   <li><span class="badge badge-critical">CRITICAL 9.1</span> <strong>F-18</strong> — sipServer SQL injection via unauthenticated SIP REGISTER (no prepared statements)</li>
   <li><span class="badge badge-high">HIGH 8.8</span> <strong>F-12</strong> — Kernel privilege escalation: Dirty COW + overlayfs, confirmed Metasploit modules</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-12-28, shared across all units</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-09-12, shared across all units</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-13</strong> — Binary hardening failures: 93% lack RELRO, 84% lack stack canaries, NX absent on hicore</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-14</strong> — 300 unsafe strcpy, 41 system() calls, 2,659 format string issues in hicore alone</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-19</strong> — ISAPI serial bus passthrough: authenticated HTTP-to-RS232/RS485 bridge, no additional access control</li>
@@ -364,7 +364,7 @@ accessControl/eventCtrl/event_upload.c
 root:8c9a60a87ff34a9e6c70a986aa4a9e14b237fcd4126f77107298c8afd86248d3:15595:0:99999:7:::
 ```
 
-Day `15595` in Unix epoch-days is **2012-12-28**. The hash is unsalted SHA-256 — the same value on every unit ever manufactured. John the Ripper couldn't crack it in an hour, but that's now irrelevant: the hash is public, and GPU-accelerated cracking against a custom wordlist can run indefinitely.
+Day `15595` in Unix epoch-days is **2012-09-12**. The hash is unsalted SHA-256 — the same value on every unit ever manufactured. John the Ripper couldn't crack it in an hour, but that's now irrelevant: the hash is public, and GPU-accelerated cracking against a custom wordlist can run indefinitely.
 
 The GECOS field — normally a human-readable name — is a 64-character hex string that appears to be a device identifier, suggesting the password was set programmatically and never intended to be changed by users.
 
