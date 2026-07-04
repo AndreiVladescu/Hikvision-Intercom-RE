@@ -1,0 +1,1156 @@
+\xFENPIp>XSATOodma1 ini_ver 0x11210818
+ETH trim = 00001BF8
+speed 000003A4
+Non S3
+>ddr3
+WT
+dma ok
+
+UNZOK!
+Loader Start ...
+LD_VER 03.00.06
+
+560_DRAM1_933_4096Mb 12/07/2023 11:49:45
+
+No card inserted
+Pad driving increased
+SPI NOR MID=000000C2,TYPE=00000020,SIZE=00000019=>02000000
+SPI NOR
+bl_load_fdt_from_flash 
+ 0x00000001
+Q_read 4X
+tmp_addr 0x02000000
+LdCtrl2 0x00000000
+Q_read 4X
+uboot_addr 0x00400000
+uboot_size 0x01200000
+Euboot_addr 0x00020000
+Euboot_size 0x00080000
+Q_read 4X
+E:aes start
+E:aes end
+lzma fdt 0x00100000
+shm 0x00200000
+jump 0x00400000
+
+
+U-Boot 2019.04-svn647255 (Dec 07 2023 - 11:49:51 +0800), Build: jenkins-AVI-CCI-Pipeline-16690
+
+
+[OTP secure] : Write (Lock)
+[Start Mode] : Secure
+
+Relocation to 0x0183f000, Offset is 0x0143f000 sp at 01538ec0
+nvt_shminfo_init: \x1B[33m The fdt buffer addr: 0x0153e3c8\x1B[0m
+ CONFIG_MEM_SIZE                =      0x10000000 
+ CONFIG_NVT_UIMAGE_SIZE         =      0x01900000 
+ CONFIG_NVT_ALL_IN_ONE_IMG_SIZE =      0x07800000 
+ CONFIG_UBOOT_SDRAM_BASE        =      0x00400000 
+ CONFIG_UBOOT_SDRAM_SIZE        =      0x01500000 
+ CONFIG_LINUX_SDRAM_BASE        =      0x01a00000 
+ CONFIG_LINUX_SDRAM_SIZE        =      0x01e00000 
+ CONFIG_LINUX_SDRAM_START       =      0x01f00000 \x1B[0m 
+Loading Environment from SPI Flash... nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+*** Warning - bad CRC, using default environment
+
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+nvt_detect_fw_tbin: Boot from flash or emmc
+Open SD fail:\x1B[33m No SD device? \x1B[0m
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+can't find corresponding entry
+### CRAMFS LOAD ERROR<0> for DS42dc.dtb!
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+can't find corresponding entry
+### CRAMFS LOAD ERROR<0> for DS42dc-BD010000.dtb!
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+### CRAMFS load complete: 16382 bytes loaded to 0x1a00000
+Loading FDT file with name: DS17116.dtb
+\x1B[33m pub_misc_init_r: \x1B[0mboot time: 485295(us) 
+DTS find cpu freq clock 960MHz
+Set CPU clk 960MHz
+\x1B[33m pub_misc_init_r: \x1B[0mboot time: 564085(us) 
+phy interface: INTERNAL MII
+
+Hit any key to stop autoboot:  1 \x08\x08\x08 0 
+boot normal ...
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+### CRAMFS load complete: 3171712 bytes loaded to 0x1a00000
+nvt_spinor_reset: spi flash pinmux 0x3
+id =  0xc2 0x20 0x19 0xc2 0x00
+STDR256FW with page size 256 Bytes, erase size 4 KiB, total 32 MiB
+nvt spinor 1-bit mode @ 48000000 Hz
+### CRAMFS load complete: 965476 bytes loaded to 0x3100000
+cmd bootm 1a00000 3100000 153e3c8
+Signature verification uImage OK. 
+Signature verification ramdisk.gz OK. 
+## Booting kernel from Legacy Image at 01a00120 ...
+   Image Name:   Linux-4.19.91
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3171360 Bytes = 3 MiB
+   Load Address: 00008000
+   Entry Point:  00008000
+   Verifying Checksum ... OK
+## Loading init Ramdisk from Legacy Image at 03100120 ...
+   Image Name:   NVT initramfs
+   Image Type:   ARM Linux RAMDisk Image (uncompressed)
+   Data Size:    965124 Bytes = 942.5 KiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+## Flattened Device Tree blob at 0153e3c8
+   Booting using the fdt blob at 0x153e3c8
+   Loading Kernel Image
+   Loading Ramdisk to 01d14000, end 01dffa04 ... OK
+   Loading Device Tree to 01d0d000, end 01d13ffd ... OK
+
+Starting kernel ...
+
+ACTLR: 0x00000004
+ACTLR: 0x00000044
+Disable MMU
+Clear MMU
+Uboot L2 cache aux val: 0x72420000
+Uboot L2 cache prefetch ctrl val: 0x70800000
+Uboot L2 cache ctrl val: 0x00000000
+Done
+Uncompressing Linux... done, booting the kernel.
+init started: BusyBox v1.31.1 (2023-12-07 11:50:03 CST)
+Starting udev:      [ OK ]
+21 2 11 1d
+config coredump
+start decompress  Thu Jan  1 00:00:01 UTC 1970
+..........tar lib.tar.lzma
+/tmp/start.sh: line 21: ll: not found
+21 2 11 1d
+..........tar bsp.tar.lzma
+install bsp dynamic from /home/app/lib/bsp_dylib/bsp_lib
+export ddm v1.0 inf 
+cat wifipid: f179 1 s
+insmod wifi:8188ftv cfg:/lib/firmware/  cfg:DS17116
+insmod NO mipi
+insmod NO display
+insmod NO external codec
+insmod sensor:os02h10,cfg sen_os02h10
+insmod NO charge connector
+insmod NO AI
+insmod NO VPE
+insmod NO custom
+..........tar dsp.tar.lzma
+DST_DIR = /home/app
+F2Pro
+path /home/app!!!
+'/lib/libhisdk.so' -> '/home/app/dsp/lib/libhisdk.so'
+'/lib/libf2_isp_access.so' -> '/home/app/dsp/lib/libf2_isp_access.so'
+'/lib/libbsphal_camera.so' -> '/home/app/dsp/lib/libbsphal_camera.so'
+'/lib/libprebuilt_ai.so' -> '/home/app/dsp/lib/libprebuilt_ai.so'
+'/lib/libvendor_ai2_pub.so' -> '/home/app/dsp/lib/libvendor_ai2_pub.so'
+'/lib/libvendor_ai_pub.so' -> '/home/app/dsp/lib/libvendor_ai_pub.so'
+'/lib/libvendor_ai2.so' -> '/home/app/dsp/lib/libvendor_ai2.so'
+'/lib/libvos.so' -> '/home/app/dsp/lib/libvos.so'
+'/lib/libnt_crypto_extern.so' -> '/home/app/dsp/lib/libnt_crypto_extern.so'
+'/lib/libfbe.so' -> '/home/app/dsp/lib/libfbe.so'
+cp: can't stat '/home/app/dsp/AI/cnn/*.json*': No such file or directory
+cp: can't stat '/home/app/dsp/AI/dsp_svr': No such file or directory
+..........tar audio.tar.lzma
+..........da_info
+mkdir: can't create directory '/home/app/bin': File exists
+..........sipserver
+tar: can't open '/home/hik/dnsmasq.tar.lzma': No such file or directory
+cp: can't stat '/home/hik/dnsmasq.conf': No such file or directory
+..........tar gpl.tar.lzma
+cp: can't stat '/home/hik/log4j': No such file or directory
+'/lib/libstdc++.so.6' -> '/home/app/lib/bsp_dylib/bsp_lib/libstdc++.so.6'
+cp: can't stat '/home/hik/lib/libnl-3.so.200': No such file or directory
+cp: can't stat '/home/hik/lib/libnl-genl-3.so.200': No such file or directory
+start unix bus daemon 
+log4j start...
+/home/app/log4j_start.sh: line 8: log4j: not found
+[08-01 07:55:30][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 937]new connected client saved in index[0],already [1] process(es)
+[08-01 07:55:30][PID:807][IPC_UNIX][ERROR][ipc_unix.c 991]worker_process:[gpl_process] init OK
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 125]bootParamV20.language[0]=0x1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 134]bootParamV20.language[0]=0x01, LANG_ENGLISH
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 197]=== boot param ===
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 198]bootParms.devModel(\xD7\xD4\xB6\xA8\xD2\xE5\xD0\xCD\xBA\xC5)=DS-KV6113-WPE1(C)
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 199]bootParms.magicNumber = 0x484b5753
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 200]bootParms.paraChecksum = 0x10a9
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 201]bootParms.paraLength = 0x3f4
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 202]bootParms.encryptVer = 0x20000
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 203]bootParms.language = 0x1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 204]bootParms.device_class = 0x3ff
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 205]bootParms.oemCode = 1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 206]bootParms.encodeChans = 1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 207]bootParms.decodeChans = 1
+bootParms.macAddr[0] = a4:d5:c2:4e:71:f3:
+bootParms.macAddr[1] =  0: 0: 0: 0: 0: 0:
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 220]bootParms.prodDate = 20250326FY0805639
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 221]bootParms.prodDate = FY0805639
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 222]bootParms.voNums = 0
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 223]bootParms.devType = 57944
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 224]bootParms.devModel = DS-KV6113-WPE1(C)
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 225]bootParms.rand_code = JAPQRC
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 245]=== cpld info ===
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 246]g_cpld_info.attr_usb.bits.usb_num = 0
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 247]g_cpld_info.alarm.bits.alarm_in = 4
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 248]g_cpld_info.alarm.bits.alarm_out = 1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 249]g_cpld_info.board = 0x1
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 556]firmware_version=V2.2.65
+
+firmware version: V2.2.65
+
+set_dev_firmware_version: 0x2020041
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 354]code:
+[08-01 07:55:30][PID:808][SYSINIT][ERROR][hardwareif/f2pro/sysLib.c 355]sysBasicInfo.oem_code:1
+\xD7\xD4\xB6\xA8\xD2\xE5\xD0\xCD\xBA\xC5bootParms.devModel=DS-KV6113-WPE1(C)
+pHardwareCapa->dev_type is DS-KV6113-WPE1(C)
+[08-01 07:55:30][PID:808][OTHER][ERROR][basefun_lib/device_related/make_sn.c 227]make_product_model DS-KV6113-WPE1(C)
+[08-01 07:55:30][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 269]regist process addr[4], name[gpl_process], fd[4]
+[08-01 07:55:30][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 468]daemon can not find dst process addr[1], is_need_ack 1 
+[08-01 07:55:30][PID:807][IPC_UNIX][ERROR][ipc_unix.c 545]recv ack without data
+<config/paramLib.c 3147>powerLineFrequencyMode = 0 
+pDevCfg->phoneNumPara.workType:5
+[08-01 07:55:31][PID:808][OTHER][ERROR][database/dbutil.c 1139]The config database need patch up,current major version:1013, old major version:1013
+[08-01 07:55:31][PID:808][OTHER][ERROR][encrypt/encrypt_interface.c 681]store_msg_decrypt input param error!
+[08-01 07:55:31][PID:808][OTHER][ERROR][encrypt/encrypt_interface.c 681]store_msg_decrypt input param error!
+[08-01 07:55:31][PID:808][OTHER][ERROR][database/db_user_info_util.c 202]cur_major_ver=1006, old_major_ver=1006
+[08-01 07:55:31][PID:808][OTHER][ERROR][database/db_user_info_util.c 316]create vis_bak.bin
+[08-01 07:55:31][PID:808][OTHER][ERROR][database/db_user_info_shell.c 8601]call db_region_clip_init
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1660]create share mem key:1712259610
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1674]create share mem successfully, addr:0x75bd7000, shm id:0
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1697]net main pool[0] addr:0x75c3512c, len:2097152
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1707]net sub pool[0] addr:0x75e3512c, len:2097152
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1770]dec pool[0] addr:0x7603512c, len:2097152
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1788]invalid PMR audio pool info
+\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|47: 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|48: *****************************************************
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|49: **                                                 **
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|50: ** MODULE       : Plat F2pro Com Ver V1.0.0
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|51: ** MODULE       : DSP 2.7.30 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|52: ** MODULE       : Svn 591394 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|53: ** COMPILE USER :  
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|54: ** BUILD TIME   : 2023-06-06 10:43:47
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|55: **                                                 **
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|56: *****************************************************
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|InitDsp.c|ProgramVersionShow|57: 
+\x1B[m\x1B[m\x1B[1;33m[DSP] WARN|system_prm.c|SystemPrm_InitDspPara|271: ppDspInitPara = 0x75bd7000 
+\x1B[m\x1B[m\x1B[1;33m[DSP] WARN|cpld_parse.c|Cpld_getType|608: get CPLD success !!!
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|668: [Checksum]: 017D [ver] : 2-0-0 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|669: [DATE   ]:Year-Month-Day : 25-3-26
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|670: [PCB    ]: DS-17116 [board_attr] : 1-0-0 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|671: [DDR    ]: 6-1 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|672: [Audio  ]: 1-1-0 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|673: [Sensor_Num  ]: 1
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|676: [Sensor 0]: 1-7-0-7
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|679: [Main_Lcd    ]: 0-0-0 
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|680: [Secondary   ]: 0-0-0
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|681: [External_interface ] : 0
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_printType|682: [Main lcd:resolution ] : 0
+\x1B[m\x1B[m\x1B[1;33m[DSP] WARN|cpld_parse.c|Cpld_dspInit|317: cpld info:: pcb:17116(0x42dc) boardType: 201 (DSP_DEV_VIS_KV6113) sensor_num: 1 rotation:0 chip:7 cam_lens:7 ddrnum:1
+\x1B[m------>>> init_dsp_param 1
+------>>> init_dsp_param 2
+[08-01 07:55:31][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 264][1]p_audio_TB_buf_info->frameLen=160, p_audio_TB_buf_info->totalFrame=128..
+------>>> init_dsp_param 3
+\x1B[m\x1B[0;32m[DSP] INFO|system_prm.c|SystemPrm_videoIFrameCallBackMain|61: SystemPrm_videoIFrameCallBackMain tsk is running, pid is 818 
+\x1B[m------>>> init_dsp_param 4
+\x1B[m\x1B[1;33m[DSP] WARN|sys_hostcmd.c|FUN_HOST_CMD_DSP_INIT|421: ===============DSP Init START===============
+\x1B[m\x1B[m\x1B[0;32m[DSP] INFO|cpld_parse.c|Cpld_dspUpdate|473: boardType 201 !!!
+\x1B[mHDAL: Version: v0.2000.0
+\x1B[m[23.301] \x1B[0;32m[DSP] INFO|sys_hal_drv.c|SysHal_drvInit|489: hd_common_init ok!!! 
+\x1B[m\x1B[m[23.302] \x1B[0;32m[DSP] INFO|sys_hal_drv.c|SysHal_com_mem|416: Alloc fd mem num 2, Total 45 MB 
+\x1B[m\x1B[m[23.308] \x1B[1;33m[DSP] WARN|dspProcServer.c|Proc_registerShellCmd|149: Proc_registerShellCmd command:dspinfo index:1
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sal_log.c|SAL_logLevel|158: Set debug level 1 success!
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|proc_drv.c|Proc_drvDspDefaultLevel|227: Uboot dspLevel Is NULL !
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_tsk.c|Sys_tskDspDefaultLevel|146: Proc_drvDspDefaultLevel !!!
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|161: APP: NetPoolMain[0] totalLen=2097152, vAddr=0x75c3512c
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|178: APP: NetPoolSub[0] totalLen=2097152, vAddr=0x75e3512c
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|194: APP: NetPoolThr[0] totalLen=0, vAddr=(nil)
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|161: APP: NetPoolMain[1] totalLen=0, vAddr=(nil)
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|178: APP: NetPoolSub[1] totalLen=0, vAddr=(nil)
+\x1B[m\x1B[m[23.309] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|194: APP: NetPoolThr[1] totalLen=0, vAddr=(nil)
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|269: APP:stPmrAudioPool totalLen=0, vAddr=(nil)
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|System_commonDspShareBuffInit|289: APP: decShareBuf[0] totalLen=2097152, vAddr=0x7603512c
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|capt_tsk.c|Capt_tskInit|974: totalCaptDev:1 !!!
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 8 not set, please pay attention
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 9 not set, please pay attention
+\x1B[m\x1B[m[23.642] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 10 not set, please pay attention
+\x1B[m\x1B[m[23.643] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 11 not set, please pay attention
+\x1B[m\x1B[m[23.643] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 12 not set, please pay attention
+\x1B[m\x1B[m[23.643] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 13 not set, please pay attention
+\x1B[m\x1B[m[23.643] \x1B[1;33m[DSP] WARN|vi_common.c|VI_COMMON_AbilityCheck|823: chan 0 ability id 14 not set, please pay attention
+\x1B[m\x1B[m[23.643] \x1B[1;33m[DSP] WARN|dup_tsk.c|DUP_tskInit|355: uiTotaCapt:1 !!!
+[08-01 07:55:31][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 468]daemon can not find dst process addr[1], is_need_ack 1 
+\x1B[m\x1B[m[23.646] \x1B[1;33m[DSP] WARN|dspProcServer.c|Proc_serverTask|484: ProcServerTask Start.
+[08-01 07:55:31][PID:807][IPC_UNIX][ERROR][ipc_unix.c 545]recv ack without data
+\x1B[m\x1B[m[23.738] \x1B[1;33m[DSP] WARN|vi_isif.c|VI_ISIF_Create|1588: set chan 0 w 1920 h 1080 fps 25
+\x1B[m\x1B[m[23.739] \x1B[1;33m[DSP] WARN|vi_isif.c|VI_ISIF_Create|1710: vi isif chn 0 init ok
+\x1B[m\x1B[m[23.739] \x1B[1;33m[DSP] WARN|dup_drv.c|Dup_drvCreate|1176: pstCaptChanHandle->outport: 0x20000001 !!!
+\x1B[m\x1B[m[23.747] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halCreateMod|2647: before dup bind vcap chnIdx:0x20000001  bindType:0
+\x1B[m\x1B[m[23.747] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halBindChn|1281: Attention please! for this bind,vproc as the dest!
+\x1B[m\x1B[m[23.747] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halBindChn|1288: vcap:0x20000001 will bind to vproc:0x24000100!
+\x1B[m\x1B[m[23.748] \x1B[1;33m[DSP] WARN|frameout_drv.c|FrameOut_drvInit|537: Not Used FrameOut !!!
+\x1B[mRtpUnpack_GetMemSize buf_size 5700
+RtpUnpack_GetMemSize buf_size 5700
+\x1B[m[23.751] \x1B[1;33m[DSP] WARN|dup_drv.c|Dup_drvProcCropScale|946: Dup_drvProcCropScale Thr Create !!!
+\x1B[m\x1B[m[24.320] \x1B[1;33m[DSP] WARN|sys_hostcmd.c|FUN_HOST_CMD_DSP_INIT|489: ===============DSP Init SUCCESS=================
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_drv.c|Capt_drvIspSetPrm|454: chan 1 is not exist. viCnt 1 !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_tsk.c|CmdProc_captCmdProc|169: Chn 1 Host Cmd 80070002 Failed !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_drv.c|Capt_drvIspSetPrm|454: chan 1 is not exist. viCnt 1 !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_tsk.c|CmdProc_captCmdProc|169: Chn 1 Host Cmd 80070002 Failed !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_drv.c|Capt_drvIspSetPrm|454: chan 1 is not exist. viCnt 1 !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_tsk.c|CmdProc_captCmdProc|169: Chn 1 Host Cmd 80070002 Failed !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_drv.c|Capt_drvIspSetPrm|454: chan 1 is not exist. viCnt 1 !!!
+\x1B[m\x1B[m[24.321] \x1B[0;31m[DSP] ERROR|capt_tsk.c|CmdProc_captCmdProc|169: Chn 1 Host Cmd 80070002 Failed !!!
+\x1B[mhwif_set_fact_special_param open pcp failed!
+param_lib_get_cam_clib_param err1
+get cameral param error!
+[08-01 07:55:32][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 937]new connected client saved in index[1],already [2] process(es)
+[08-01 07:55:32][PID:808][IPC_UNIX][ERROR][ipc_unix.c 991]worker_process:[hicore_worker_process] init OK
+[08-01 07:55:32][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 2016]remove /home/app/hicore OK!
+[08-01 07:55:32][PID:808][8021X][ERROR][misc/vis_audio.c 213]commandName is cp -rf /home/app/resource/rings/English/*.wav /home/app/resource/rings
+>>>open /dev/mmcblk0p1 error: errno = 2(No such file or directory)
+>>>open /dev/mmcblk0 error: errno = 2(No such file or directory)
+>>>open /dev/msa1 error: errno = 2(No such file or directory)
+>>>open /dev/msa2 error: errno = 2(No such file or directory)
+>>>open /dev/msa3 error: errno = 2(No such file or directory)
+>>>open /dev/msa4 error: errno = 2(No such file or directory)
+>>>open /dev/msa error: errno = 2(No such file or directory)
+mount failed!
+[PSWD][0067]:public_base64_len 188  len 140 
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 7422]same_subnet_flag value is:-1 ....
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 7440]change_route_statusget ip addr erro 
+[08-01 07:55:32][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 269]regist process addr[1], name[hicore_worker_process], fd[5]
+open resolve file error!
+IF:eth0 dns1: 8.8.8.8, dns2: 8.8.4.4
+#########setIfNameserverRoute: route add -host 8.8.8.8 dev eth0
+
+#########setIfNameserverRoute: route add -host 8.8.4.4 dev eth0
+
+#########iproute2: route del default gw 0.0.0.0 dev eth0......
+route: SIOCDELRT: No such process
+flush iproute: ip route flush table 251......
+#########iproute2: ip rule del table 251 ......
+ip: RTNETLINK answers: No such file or directory
+#########iproute1: route add default gw 192.0.0.1 dev eth0......
+#########iproute2: ip route add 192.0.0.1 dev eth0 table 251 ......
+#########iproute2: ip route add default via 192.0.0.1 dev eth0 table 251 ......
+[08-01 07:55:32][PID:808][ISAPI][ERROR][ISAPI/hicore_protocol.c 95]\xCE\xDEjson\xCA\xFD\xBE\xDD
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 1768]get_ipaddr failed[08-01 07:55:32][PID:808][ISAPI][ERROR][ISAPI/sipc/isapi_sipc.c 46]local sip client port is 5060
+isapi_get_info, body {
+        "localIp":      "0.0.0.0",
+        "localPort":    5060,
+        "protocolType": 2,
+        "language":     1,
+        "deviceType":   5,
+        "isSupportDecoder":     0,
+        "prodno":       "FY0805639",
+        "dspShmCfg":    {
+                "shmPath":      "/home/app",
+                "shmAttr":      26214,
+                "mainLen":      2097152,
+                "subLen":       2097152,
+                "thirdLen":     0,
+                "recMainLen":   0,
+                "recSubLen":    0,
+                "decBuffLen":   2162688
+        }
+}
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 738]cfg localPort: 5060
+voipParseCfgCmd, get main cfg
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 769]current language 1
+voipParseCfgCmd, get main cfg, language 1
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 784]current prodno FY0805639
+voipParseCfgCmd, get main cfg, no FY0805639
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 800]current dev_type 5
+voipParseCfgCmd, get main cfg, dev_type 5
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 816]current isSupportDecoder 0
+voipParseCfgCmd, get main cfg, isSupportDecoder 0
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 831]call shmPath [08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 836]call shmPath: /home/app
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 849]call shmAttr: 26214
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 862]call mainLen: 2097152
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 874]call subLen: 2097152
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 887]call thirdLen: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 900]call recMainLen: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 912]call recSubLen: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 924]call decBuffLen: 2162688
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 935]call shmPath cfg: /home/app
+[08-01 07:55:32][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 1747]END send cmd rcvlen:1012 url:GET /ThirdParty/SipClient/ConfigInfo?format=json ret:0
+[08-01 07:55:32][PID:807][GPL][ERROR][mainCtrl/gpl_process.c 161]GPL start param shmPath cfg: /home/app addr:0x6666
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 143]get language  :1  no :FY0805639 
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 144]get shm path :/home/app attr:26214
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 53]net main pool[0] addr:0x7648012c, len:2097152
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 60]net sub pool[0] addr:0x7668012c, len:2097152
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 78]invalid rec pool info
+[08-01 07:55:32][PID:807][DSP][ERROR][virtual_dsp.c 117]dec pool[0] addr:0x7688012c, len:2097152
+[08-01 07:55:32][PID:807][GPL][ERROR][mainCtrl/gpl_process.c 172]Yate Engine Starting ready!
+Yate (807) is starting Sat Aug  1 07:55:32 1970
+netAddr: 192.0.0.0/24
+#########iproute2: ip route add 192.0.0.0/24 dev eth0 table 251 ......
+#########iproute2: ip rule add from 192.0.0.65 table 251 pref 1000......
+[08-01 07:55:32][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 4639]ip = 192.0.0.65, gateway = 192.0.0.1, maskAddr = 192.0.0.0/24
+read FISH_EYE_PARAM_DIR error
+produceTestFishEyeReadCalibValue error
+[08-01 07:55:32][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 1483]enabled =0,r_w=0,r_h=0,resolution=0x0,uix=0,uiy=0,uiw=0,uih=0
+[08-01 07:55:32][PID:808][SDKCMD][ERROR][netConn/dvrNet.c 700]stop [wlan0] dhcp task 
+[08-01 07:55:32][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:330  load_type:0x40002 
+
+receive url:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 62]parse_devicelist_import_msg, start
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 83]remoteId->type: 1
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 84]is_dhcp_enable: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 85]is_dhcp_enable: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 86]is_dhcp_enable: 0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 100]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 101]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 102]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 442]==================================================
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 443]stop [wlan0] dhcp task 
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 444]==================================================
+[08-01 07:55:32][PID:807][GPL][ERROR][ipc_unix/gpl_process_analyse_isapi.c 416]gpl_dhcp_config_proc ret 0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 194]assem_dhcp_config_resp val: {
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+/home/config/wpa.bin exist!
+
+Loaded module FileInfo
+Loaded module WaveFile
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 193]load_data rsp:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 194]load_data rsp body:{
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 55]status code: 0
+[08-01 07:55:32][PID:808][SDKCMD][ERROR][netConn/dvrNet.c 925]initWlanIf startDhcpClient
+[08-01 07:55:32][PID:808][SDKCMD][ERROR][netConn/dvrNet.c 636]===wlan0===starting DHCP...
+[08-01 07:55:32][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:329  load_type:0x40002 
+
+receive url:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 62]parse_devicelist_import_msg, start
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 83]remoteId->type: 2
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 84]is_dhcp_enable: 1
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 85]is_dhcp_enable: 1
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 86]is_dhcp_enable: 1
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 100]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 101]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 102]get report: wlan0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 513]wireless_dhcp_server_taskid has configured
+[08-01 07:55:32][PID:807][GPL][ERROR][ipc_unix/gpl_process_analyse_isapi.c 416]gpl_dhcp_config_proc ret 0
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 194]assem_dhcp_config_resp val: {
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 193]load_data rsp:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 194]load_data rsp body:{
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:32][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 55]status code: 0
+#########iproute2: route del default gw 0.0.0.0 dev wlan0......
+Loaded module YSTUN
+route: SIOCDELRT: No such process
+flush iproute: ip route flush table 250......
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 405]++++++++++++++++++++++++++++++++++++++++++++++++++
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 406]===wlan0===starting DHCP...
+[08-01 07:55:32][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 407]++++++++++++++++++++++++++++++++++++++++++++++++++
+/bin/sh: svc: not found
+Loaded module YSOCKS
+Loaded module File Transfer
+#########iproute2: ip rule del table 250 ......
+Loaded module YRTP
+ip: RTNETLINK answers: No such file or directory
+#########iproute1: route add default gw 192.168.1.1 dev wlan0......
+route: SIOCADDRT: Network is unreachable
+#########iproute2: ip route add 192.168.1.1 dev wlan0 table 250 ......
+ip: RTNETLINK answers: Network is down
+#########iproute2: ip route add default via 192.168.1.1 dev wlan0 table 250 ......
+Loaded module SIP Channel
+Initializing plugins
+Initializing module YSOCKS
+Initializing module Qt4 client
+Initializing module FileInfo
+ip: RTNETLINK answers: Network is unreachable
+netAddr: 192.168.1.0/24
+#########iproute2: ip route add 192.168.1.0/24 dev wlan0 table 250 ......
+ip: RTNETLINK answers: Network is down
+#########iproute2: ip rule add from 192.168.1.64 table 250 pref 1001......
+Initializing module WaveFile
+Initializing module YSTUN
+Initializing module File Transfer
+Initializing module YRTP
+Initializing module SIP Channel localPort:5060
+Initialization complete
+Yate client engine is initialized and starting up on dvrdvs
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 4639]ip = 192.168.1.64, gateway = 192.168.1.1, maskAddr = 192.168.1.0/24
+Listener(UDP,'general') initializing socket addr='(null)' port=5060
+local host:(null), address:0.0.0.0
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2254]get_netmask ioctl error and errno=99
+send_ether_packet: sendto error: : Network is down
+[08-01 07:55:33][PID:808][SADP][ERROR][sadp.c 1375]send_ether_packet failed
+[08-01 07:55:33][PID:808][SADP][ERROR][sadp.c 474]get_capture_packet failed, caplen=-1
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2254]get_netmask ioctl error and errno=99
+send_ether_packet: sendto error: : Network is down
+[08-01 07:55:33][PID:808][SADP][ERROR][sadp.c 1375]send_ether_packet failed
+[08-01 07:55:33][PID:808][UNI_IF][ERROR][netitf/netprocItf.c 12555]update softap_cfg config info !
+[08-01 07:55:33][PID:808][8021X][ERROR][wifi/wifi_ap.c 217]uni_get_nic_mode() 1
+[08-01 07:55:33][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:33][PID:808][8021X][ERROR][wifi/wifi_ap.c 138]get wifi_ap_network_param ipaddr [192.168.8.1] [192.168.8.1]
+[08-01 07:55:33][PID:808][8021X][ERROR][wifi/wifi_ap.c 336]wifi ap module is start
+[08-01 07:55:33][PID:808][8021X][ERROR][wifi/wifi_ap.c 678]hostapd_start_ap success
+[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 459]SD card supported.
+[08-01 07:55:33][PID:808][SYSLOG][ERROR][misc/dvrLogLib.c 2950]no main log. system log will not work.
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2139]Send to DSP NameOSD : (x,y)=(464,416)
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2140]Send to DSP NameOSD : Camera 01
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2145]Send to DSP OSD_TIME_TYPE : 6
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2156]Send to DSP TimeOSD : (x,y)=(464,448)
+[08-01 07:55:33][PID:808][SDKCMD][ERROR][netConn/devmgmt/devmgmt_main.c 2537]start room device auto cfg task, size global 1260, size conn 40040, size roomcfg 272, size upcfg 1180, size sock 624
+[08-01 07:55:33][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 21, start time = 21, pass time = 0
+udhcp server (v0.9.8) started
+\x1B[m[25.804] \x1B[1;33m[DSP] WARN|osd_drv.c|OSD_drvCreat|2946: TskVideoOsdRefresh 
+\x1B[m\x1B[m[25.804] \x1B[1;33m[DSP] WARN|osd_drv.c|Osd_drvCheckChan|1350: OSD mem create!!
+\x1B[m[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 160]<hwif_get_dsp_encode_type()> dsp_video_type=0
+\x1B[m[25.805] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|382: venc width 1280 height 720  bps set 2097152  streamType 0x1003 
+\x1B[m\x1B[m[25.805] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|412: bps set 2097152, use quality 30 
+\x1B[m\x1B[m[25.805] \x1B[1;33m[DSP] WARN|device_class.c|BoardTypeParse_useVencRoute|125: BoardType:201  is not supported!
+\x1B[m\x1B[m[25.805] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvIsNeedCropFromSrc|690: Venc Region 1920 1080 , Max Region 1080 1920 
+\x1B[m\x1B[m[25.805] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvPackCreate|2553: Create video Pack chn!!!
+\x1B[m\x1B[m[25.861] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|544: Dev 0,Chn 0,set w 1280,h 720,standard 0,fps 25,gop 50,bpsType 0,bps 2097152,videoType 0, streamType 0x1003, quality 30
+\x1B[m\x1B[m[25.861] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|551: Chan not start
+\x1B[m[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2139]Send to DSP NameOSD : (x,y)=(464,416)
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2140]Send to DSP NameOSD : Camera 01
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2145]Send to DSP OSD_TIME_TYPE : 6
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 2156]Send to DSP TimeOSD : (x,y)=(464,448)
+\x1B[m[25.862] \x1B[0;31m[DSP] ERROR|vda_hostcmd.c|CmdProc_vdaCmdProc|125: CMD <80090005> is ERROR !!!
+\x1B[m[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 1261]DspIdx = 0, chansPerDsp = 1, chanNums = 1, bufLen = 0x0
+[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 1317]chan 1: recBuf addr = 0x0, length = 0x0, netBuf addr = 0x0, length = 0x0
+[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 1321]chan 1 preRecordTime = 10
+[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 160]<hwif_get_dsp_encode_type()> dsp_video_type=0
+[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 1364] ####### Get sub videoType 0 ####### .
+\x1B[m[25.862] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|382: venc width 1280 height 720  bps set 2097152  streamType 0x1003 
+\x1B[m\x1B[m[25.862] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|412: bps set 2097152, use quality 30 
+\x1B[m\x1B[m[25.863] \x1B[1;33m[DSP] WARN|device_class.c|BoardTypeParse_useVencRoute|125: BoardType:201  is not supported!
+\x1B[m\x1B[m[25.863] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvIsNeedCropFromSrc|690: Venc Region 1920 1080 , Max Region 1080 1920 
+\x1B[m\x1B[m[25.863] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvPackCreate|2553: Create video Pack chn!!!
+\x1B[m\x1B[m[25.888] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|544: Dev 0,Chn 1,set w 1280,h 720,standard 0,fps 25,gop 50,bpsType 0,bps 2097152,videoType 0, streamType 0x1003, quality 30
+\x1B[m\x1B[m[25.888] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|551: Chan not start
+\x1B[m[08-01 07:55:33][PID:808][DSP][ERROR][hardwareif/f2pro/dsp/dsp.c 160]<hwif_get_dsp_encode_type()> dsp_video_type=0
+[08-01 07:55:33][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 1364] ####### Get sub videoType 0 ####### .
+\x1B[m[25.889] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|382: venc width 1280 height 720  bps set 2097152  streamType 0x1003 
+\x1B[m\x1B[m[25.889] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskCheckPrm|412: bps set 2097152, use quality 30 
+\x1B[m\x1B[m[25.889] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|544: Dev 0,Chn 1,set w 1280,h 720,standard 0,fps 25,gop 50,bpsType 0,bps 2097152,videoType 0, streamType 0x1003, quality 30
+\x1B[m\x1B[m[25.889] \x1B[1;33m[DSP] WARN|venc_tsk.c|Venc_tskSetParam|551: Chan not start
+\x1B[m[08-01 07:55:33][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 401]set line[main door line] server version:2
+<ALL> Plugin::Plugin("sip",false) [0x529b0]
+Loaded module SIP Channel
+<ALL> Plugin::Plugin() [0x52b48]
+Loaded module Registration from file
+[08-01 07:55:33][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 937]new connected client saved in index[2],already [3] process(es)
+[08-01 07:55:33][PID:902][IPC_UNIX][ERROR][ipc_unix.c 991]worker_process:[sipserver_process] init OK
+[08-01 07:55:33][PID:902][SIPS][ERROR][sipServer.cpp 60]sips get init param start
+[08-01 07:55:33][PID:803][PRODUCT_TEST][ERROR][unix_bus.c 269]regist process addr[5], name[sipserver_process], fd[6]
+18345334.110898: wlan1: interface state UNINITIALIZED->ENABLED
+18345334.111088: wlan1: AP-ENABLED 
+[08-01 07:55:34][PID:902][SIPS][ERROR][sipServer.cpp 67]sips get init param end
+[08-01 07:55:34][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 123]sip_server_cipher_table_init, enter
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 263][SIP Init Param]is single villa dev:0
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 267][SIP Init Param]sips local port:5065
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 271][SIP Init Param]sipc local port:5060
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 275][SIP Init Param]is cn version:0
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 279][SIP Init Param]is need verification:0
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 283][SIP Init Param]is digital system:1
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 61]update sips device id param
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 63]zoneNo[1], buildingNo[1], unitNo[1], doorNo[0]
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 103]update sips time config param, zoneHour[0], zoneMinutes[0]
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_db.hpp 88]sips set dev lock num:0
+[08-01 07:55:34][PID:902][OTHER][ERROR][sips_config_db.cpp 143]update sips dst param[0]
+[08-01 07:55:34][PID:902][SIPS][ERROR][sipServer.cpp 90]sip server init, restore cipher table
+[08-01 07:55:34][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 39]set cipher table restore flag 0
+
+
+BusyBox v1.31.1 (2023-12-07 11:50:03 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+BusyBox v1.2.1 Protect Shell (psh svn358439) Build Time: Aug 27 2021:16:11:10
+Enter 'help' for a list system commands.
+
+Random number is:252818968
+# [08-01 07:55:34][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 1
+[08-01 07:55:34][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 46]invalid regist param, unable to send regist info
+[08-01 07:55:35][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:35][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2254]get_netmask ioctl error and errno=99
+send_ether_packet: sendto error: : Network is down
+[08-01 07:55:35][PID:808][SADP][ERROR][sadp.c 1375]send_ether_packet failed
+[MODE] SIP Running In Server Mode
+HKVS (902) is starting Sat Aug  1 07:55:35 1970
+<ALL> Loaded 2 plugins
+Initializing plugins
+Initializing module SIP Channel
+<sip:ALL> SIPEndPoint::SIPEndPoint() [0x41c178]
+<sip:NOTE> UDP buffer size is 8192 (requested 1024)
+<sip:CALL> Started on 0.0.0.0:5065
+Initializing module Register for file
+Initialization complete
+<ALL> Engine dispatching start message
+HKVS engine is initialized and starting up on dvrdvs
+<INFO> Creating new message dispatching thread (0 running)
+[08-01 07:55:35][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 39]set cipher table restore flag 1
+[08-01 07:55:35][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 215]reset cipher table
+[08-01 07:55:35][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 253]cipher table restore, inquire dev info, dev num 0
+[08-01 07:55:35][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 279]cipher table restore finish
+[08-01 07:55:35][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[main door line] logout request to 0.0.0.0:0
+[08-01 07:55:35][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 46]invalid regist param, unable to send regist info
+[08-01 07:55:35][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 696]send regist info request failed
+[08-01 07:55:36][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 3 seconds for the interface[wlan0] initialization...
+[08-01 07:55:36][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[pri server line] logout request to 0.0.0.0:0
+[08-01 07:55:36][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 46]invalid regist param, unable to send regist info
+[08-01 07:55:36][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 696]send regist info request failed
+[08-01 07:55:37][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 6
+[08-01 07:55:37][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 3
+[08-01 07:55:38][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 2
+activeEth : eth0 ,ipAddress 192.0.0.65 ,subnetMask 255.255.255.0 ,defaultGatewayIp 192.0.0.1
+[08-01 07:55:38][PID:808][SDKCMD][ERROR][netConn/devmgmt/devmgmt_msg.c 10553]invalid ip 0.0.0.0
+[08-01 07:55:38][PID:808][SDKCMD][ERROR][netConn/devmgmt/devmgmt_msg.c 10751]add_client_dev_to_server_mgt_list FAIL ,channel : 0
+[08-01 07:55:38][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[pri server line] logout request to 0.0.0.0:5065
+[08-01 07:55:38][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:849  load_type:0x40002 
+
+receive url:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:38][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 622]stunServerDomain json fomat Error
+[08-01 07:55:38][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 633]stunServerPort json fomat Error
+[08-01 07:55:38][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 639]activeInterface: eth0
+[08-01 07:55:38][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 78]regist rsp:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:38][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 79]regist rsp body:{
+        "regRes":       {
+                "status":       0
+        }
+}
+[08-01 07:55:38][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 26, start time = 21, pass time = 5
+[08-01 07:55:38][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 580]alarm_ctrl_task start!
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10215]wired disconn process!
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 6982]eth0 del_route ioctl error and errno=3, No such process
+#########delete IfNameserverRoute: route del -host 8.8.8.8 dev eth0
+
+#########delete IfNameserverRoute: route del -host 8.8.4.4 dev eth0
+
+\x1B[m[30.931] \x1B[1;33m[DSP] WARN|vi_isif.c|VI_ISIF_Start|619: start chan:0 vcappath:0x20000101 success!
+\x1B[m
+
+ nt isp version 16777216
+
+\x1B[m[30.932] \x1B[1;33m[DSP] WARN|vi_isp.c|VI_ISP_PrivateCreate|1643: 
+*************************************************
+ ** The following is the ISP version information :
+ ** Main Version     : 1
+ ** Sub Version      : 0
+ ** Revision Version : 0
+ ** MK Data          : 20230525 19:38:05
+ ** Svn Version      : 587670
+ *************************************************
+\x1B[mIF:eth0 dns1: 0.0.0.0, dns2: 0.0.0.0
+[08-01 07:55:38][PID:808][ALARM_EXP][ERROR][misc/alarmCtrl.c 1788]exception msg queue invalid
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9629]sendExceptionMsgs ETHERNETBROKEN_EXCEPTION err. ret_val = -1 
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9636]wired_func_disconnect start stopDhcpTask.
+[08-01 07:55:38][PID:808][SDKCMD][ERROR][netConn/dvrNet.c 700]stop [eth0] dhcp task 
+[08-01 07:55:38][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:329  load_type:0x40002 
+
+receive url:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 62]parse_devicelist_import_msg, start
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 83]remoteId->type: 1
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 84]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 85]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 86]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 100]get report: eth0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 101]get report: eth0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 102]get report: eth0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 442]==================================================
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 443]stop [eth0] dhcp task 
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 444]==================================================
+[08-01 07:55:38][PID:807][GPL][ERROR][ipc_unix/gpl_process_analyse_isapi.c 416]gpl_dhcp_config_proc ret 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 194]assem_dhcp_config_resp val: {
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:38][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 193]load_data rsp:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:38][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 194]load_data rsp body:{
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:38][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 55]status code: 0
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9638]wired_func_disconnect stopDhcpTask succeed
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=99
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 7004]wlan0 get_ipaddr error 
+open resolve file error!
+IF:wlan0 dns1: 0.0.0.0, dns2: 0.0.0.0
+route: SIOCDELRT: No such process
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 6982]eth0 del_route ioctl error and errno=3, No such process
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 6982]eth0 del_route ioctl error and errno=3, No such process
+IF:eth0 dns1: 0.0.0.0, dns2: 0.0.0.0
+[08-01 07:55:38][PID:808][ALARM_EXP][ERROR][misc/alarmCtrl.c 1788]exception msg queue invalid
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9629]sendExceptionMsgs ETHERNETBROKEN_EXCEPTION err. ret_val = -1 
+[08-01 07:55:38][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9636]wired_func_disconnect start stopDhcpTask.
+[08-01 07:55:38][PID:808][SDKCMD][ERROR][netConn/dvrNet.c 700]stop [eth0] dhcp task 
+[08-01 07:55:38][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:329  load_type:0x40002 
+
+receive url:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 62]parse_devicelist_import_msg, start
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 83]remoteId->type: 1
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 84]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 85]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 86]is_dhcp_enable: 0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 100]get report: eth0
+[08-01 07:55:38][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 101]get report: eth0
+[08-01 07:55:39][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 102]get report: eth0
+[08-01 07:55:39][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 442]==================================================
+[08-01 07:55:39][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 443]stop [eth0] dhcp task 
+[08-01 07:55:39][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 444]==================================================
+[08-01 07:55:39][PID:807][GPL][ERROR][ipc_unix/gpl_process_analyse_isapi.c 416]gpl_dhcp_config_proc ret 0
+[08-01 07:55:39][PID:807][GPL][ERROR][dhcp/hik_dhcp.c 194]assem_dhcp_config_resp val: {
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+device_info->device_id 17116 camera_num 1
+i 0 camera_type 1 sensor_id 7 lens_type 7 rotation 0
+nvt_isp module is already initialised. 
+hd_status -20
+ISP_GetLVDSAttr id 0 fps 6400
+
+
+ ISP create
+isp_param 0x76b0a760
+\x1B[0;34m [ISP][I][ISP_Create:739] isp_param 0x76b0a760
+chan_num 1 isp_control_param 0x26eac90
+wdr mode 0 linear
+isp - isp_os02h10_rgb_lens7_linear.cfg
+config name /home/config/isp/isp_os02h10_rgb_lens7_linear.cfg
+config name /home/config/isp/isp_os02h10_rgb_lens7_linear.cfg
+config name /home/config/isp/isp_os02h10_rgb_lens7_linear.cfg
+[08-01 07:55:39][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 6 seconds for the interface[wlan0] initialization...
+[08-01 07:55:39][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 193]load_data rsp:POST /ThirdParty/DHCP/config?format=json 
+[08-01 07:55:39][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 194]load_data rsp body:{
+        "msgRes":       {
+                "statusCode":   0
+        }
+}
+[08-01 07:55:39][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_dhcp_control.c 55]status code: 0
+[08-01 07:55:39][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9638]wired_func_disconnect stopDhcpTask succeed
+[08-01 07:55:39][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 39]set cipher table restore flag 0
+[08-01 07:55:39][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_unix_service.c 151]received sips update cipher info, len:20
+[08-01 07:55:39][PID:808][IPC_HICORE][ERROR][ipc_unix/ipc_unix_service.c 155]update main door regist cipher, len:20
+[08-01 07:55:39][PID:808][SIPC][ERROR][netConn/sip/ysipc/sipc_reg_manager.cpp 16]update new regist cipher
+[08-01 07:55:39][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 434]set reg line[main door line], regist cipher len[20]
+0x55 0x30 0x4d 0x10 0xaa 0xce 0xf2 0xaf 0x4e 0x60 0x24 0x4a 0x6f 0xe3 0x96 0x52 0x 0 0x 0 0x 0 0x 0 
+route: SIOCDELRT: No such process
+[08-01 07:55:39][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10329]current net has been broken!
+[08-01 07:55:39][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2374]set_active_interface  
+[08-01 07:55:39][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10374]if_switch succeed:current active interface is  !
+sensor_id 109, buf_size 0 fd_iav 0 width 1920 height 1080 img_mode 0 lut_size 0 output 0 hardware 0 fps 6400 path  /home/config/isp
+
+-->default isp thread priority is 0 , next be 99 --<
+policy 0
+max_priority = 0
+min_priority = 0
+\x1B[0;32m [ISP][W][ISP_SetExposureTime:388] id 0 set exptime 40000 40000
+wdr_mode 0 -> 0
+
+
+ # # ISP_SetSaturationLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetContrastLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetSharpenLevel devices_id= 17116, setSat = 50
+\x1B[0;32m [ISP][W][ISP_SetAeExpTimeMax:1118] exp_time_max 10000 
+\x1B[0;32m [ISP][W][ISP_SetAeBackLightMode:1269] blc_mode 6 [25 0 50 100]
+\x1B[0;32m [ISP][W][ISP_SetFaceAeBrightnessLevel:1618] face_ae_brightness_level 60
+set day night flag 0
+\x1B[0;32m [ISP][W][ISP_SetParamFromExtrenal:378] isp_extrenal_control->day_night_status 1
+hwif_dsp_ctrl_video_input status=0 cmd = 0x80010001
+\x1B[0;31m [ISP][E][AE_GetControlParam:988] exptime min 13 10 13 max 10000 10000 40000 iso_gain_max 1024000, wdr_mode 0 
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:330] low_exp_time[0] = 17
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:330] low_exp_time[1] = 32
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:330] low_exp_time[2] = 62
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:330] low_exp_time[3] = 121
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:330] low_exp_time[4] = 240
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:354] lowIdx 0 shutLow 0 isoGainLow 2000
+\x1B[0;31m [ISP][E][AE_GenLowExposureTimeCurve:370] highIdx 4 shutHigh 675 isoGainHigh 42187
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 0  et 13 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 1  et 17 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 2  et 17 gain 2000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 3  et 32 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 4  et 32 gain 2000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 5  et 62 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 6  et 62 gain 2000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 7  et 121 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 8  et 121 gain 2000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 9  et 240 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 10  et 10000 gain 1000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1002] i 11  et 10000 gain 1024000 duty 100
+\x1B[0;31m [ISP][E][AE_GetControlParam:1022] =====close ir light====
+====current_duty = 0==
+\x1B[0;31m [ISP][E][AE_FaceExposureInit:208]  src/ae/ae_face.c face_status 0
+
+\x1B[0;31m [ISP][E][AE_FaceExposureInit:220]  src/ae/ae_face.c face_status 0
+
+\x1B[0;31m [ISP][E][AE_FaceExposureInit:224]  src/ae/ae_face.c face_status 0
+
+\x1B[0;31m [ISP][E][AE_FaceExposureInit:230]  src/ae/ae_face.c face_status 0
+
+\x1B[m[32.162] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvSavePrm|3262: set w 1280 h 720 standard 0 videoType 0 streamType 0x1003
+\x1B[m\x1B[m[32.163] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvSwitchBindStatus|601: DUP_askCreateChan chan 0 path_type 0!!!
+\x1B[m\x1B[m[32.163] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halStopChn|1178: vproc chn 1 is not start yet
+\x1B[m\x1B[m[32.163] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halBindChn|1240: Attention please!for this bind,vproc as the src!
+\x1B[m\x1B[m[32.165] \x1B[1;33m[DSP] WARN|venc_hal.c|Venc_halStartChn|1246: pa 0xdebe000,va 0x7160a000,size 6510596
+\x1B[m\x1B[m[32.165] \x1B[1;33m[DSP] WARN|venc_hal.c|Venc_halStartChn|1250: VencHal_drvStart path 0x22000101!
+\x1B[m\x1B[m[32.165] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvCreate|4029: Venc Dev 0 Chan 0 Create
+\x1B[m[08-01 07:55:39][PID:808][SYSINIT][ERROR][mainCtrl/usrMainApp.c 653]HAL init...
+kbd_capa.kbd_nr = 1
+HOL init...
+[08-01 07:55:39][PID:808][HOL][ERROR][HAL/HOL/f2pro/serial/rs485/rs485.c 173]rs485 init start... 
+[08-01 07:55:39][PID:808][HOL][ERROR][HAL/HOL/f2pro/serial/rs485/rs485.c 174]rs485 port number is 3. 
+[08-01 07:55:39][PID:808][HOL][ERROR][HAL/HOL/f2pro/serial/rs485/rs485.c 175]rs485 port automation is 2. 
+DAL init...
+DAL initializing...
+1/6...device [keyboard] startup...! 
+2/6...device [door_ctrl] startup...! 
+[08-01 07:55:39][PID:808][HW_IF][ERROR][hardwareif/f2pro/gpio/alarm.c 750]doorId:1,open_electrical_level:1
+3/6...device [ILLM] startup...! 
+4/6...device [DABI] startup...! 
+5/6...device [card_reader] startup...! 
+[08-01 07:55:39][PID:808][HOL][ERROR][HAL/HOL/f2pro/rf1356m/rf1356m.c 631]\xD6\xC3\xCE\xBBg_encrypted_sector_no=-1(\xCA\xB9\xC4\xDC\xC9\xC8\xC7\xF8\xBC\xD3\xC3\xDC)
+6/6...device [mechanical_doorbell] startup...! 
+[08-01 07:55:39][PID:808][DAL][ERROR][HAL/DAL/mechanical_doorbell/m_doorbell.c 313]no mechancal doorbell. 
+wdr_mode 0 -> 0
+
+
+ # # ISP_SetSaturationLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetContrastLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetSharpenLevel devices_id= 17116, setSat = 50
+\x1B[0;32m [ISP][W][ISP_SetAeExpTimeMax:1118] exp_time_max 10000 
+\x1B[0;32m [ISP][W][ISP_SetAeBackLightMode:1269] blc_mode 6 [25 0 50 100]
+\x1B[0;32m [ISP][W][ISP_SetFaceAeBrightnessLevel:1618] face_ae_brightness_level 60
+set day night flag 0
+[08-01 07:55:39][PID:808][DAL_DABI][ERROR][HAL/DAL/card_reader/sub_drives/iphy_cdrd/iphy_cdrd.c 65]\xB2\xBB\xD6\xA7\xB3\xD6rf125k
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/card_reader/sub_drives/iphy_cdrd/iphy_cdrd.c 78]\xB2\xBB\xD6\xA7\xB3\xD6wiegand
+g_kbd.dev_table[0].dev_file_name:/dev/event1
+g_kbd.dev_table[i].fd:33
+\x1B[m[32.505] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvThrMain|2891: Venc Dev 0 Chan 0 Start.
+\x1B[m
+saturation level usr_param->saturation_level=50, inner_param->saturation_level=50!
+[08-01 07:55:40][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 39]set cipher table restore flag 1
+[08-01 07:55:40][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 215]reset cipher table
+[08-01 07:55:40][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 253]cipher table restore, inquire dev info, dev num 0
+[08-01 07:55:40][PID:902][SIPS][ERROR][sips_cipher_manager.cpp 279]cipher table restore finish
+
+
+ # # ISP_SetContrastLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetSharpenLevel devices_id= 17116, setSat = 50
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 72]switch occur counter:1
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 282]comb backlight status 0!
+DDM_IOC_LED_SET_OUTPUT failed:errno is 38[Function not implemented]
+ERROR :DDM_LedIoctl
+\xC4\xDA\xBA\xCB\xB5\xF7\xD3\xC3\xB3\xF6\xB4\xED
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 165]hoi_lable_light_set_brightness err
+\x1B[m[32.522] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvSavePrm|3262: set w 1280 h 720 standard 0 videoType 0 streamType 0x1003
+\x1B[m\x1B[m[32.522] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvSwitchBindStatus|601: DUP_askCreateChan chan 0 path_type 0!!!
+\x1B[m\x1B[m[32.522] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halStopChn|1178: vproc chn 2 is not start yet
+\x1B[m\x1B[m[32.522] \x1B[1;33m[DSP] WARN|dup_hal.c|Dup_halBindChn|1240: Attention please!for this bind,vproc as the src!
+\x1B[m\x1B[m[32.524] \x1B[1;33m[DSP] WARN|venc_hal.c|Venc_halStartChn|1246: pa 0xe558000,va 0x70d38000,size 6510596
+\x1B[m\x1B[m[32.524] \x1B[1;33m[DSP] WARN|venc_hal.c|Venc_halStartChn|1250: VencHal_drvStart path 0x22000202!
+\x1B[m\x1B[m[32.524] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvCreate|4029: Venc Dev 0 Chan 1 Create
+\x1B[m\x1B[m[32.526] \x1B[1;33m[DSP] WARN|venc_drv.c|Venc_drvThrMain|2891: Venc Dev 0 Chan 1 Start.
+\x1B[m
+saturation level usr_param->saturation_level=50, inner_param->saturation_level=50!
+maxEnChanNo=2 is_support_mpeg4=1,port=554
+[08-01 07:55:40][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 841]ezviz_sdk_start sucess, errno = 0(Success)
+[08-01 07:55:40][PID:808][WEBSERVER][ERROR][WebManage/websconfig.c 588]appwebPara_restore: http_port, https_port, workers
+[08-01 07:55:40][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:40][PID:808][CALL_LOGIC][ERROR][talkback_control/talkback_rules/talkback_rules_control.cpp 1257]call sessions manager thread start
+[08-01 07:55:40][PID:808][CALL_LOGIC][ERROR][talkback_control/talkback_rules/talkback_rules_control.cpp 551]m_current_talkback_rules=0,m_rules_info.size()=0
+[08-01 07:55:40][PID:808][CALL_LOGIC][ERROR][talkback_control/talkback_rules/talkback_rules_control.cpp 1311]all rules end, wait next rules control request
+--------------------------------------
+--------------------------------------
+--------------------------------------
+--------------------------------------
+1890235504
+--------------------------------------
+--------------------------------------
+--------------------------------------
+--------------------------------------
+[08-01 07:55:40][PID:808][HW_IF][ERROR][HAL/DAL/h11_temp/key_business/key_business.c 437]-------------------------------------
+[08-01 07:55:40][PID:808][HW_IF][ERROR][HAL/DAL/h11_temp/key_business/key_business.c 438]ttsCtrl begin time(18345340) !!!!!
+[08-01 07:55:40][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5389]sadp_init_lock_info 
+[08-01 07:55:40][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5391]------------------------
+[08-01 07:55:40][PID:808][ISAPI][ERROR][ISAPI/isapi_common.c 466]abi_device_type=4,abi_vis_work_type=3
+[08-01 07:55:40][PID:808][ISAPI][ERROR][ISAPI/isapi_common.c 466]abi_device_type=4,abi_vis_work_type=3
+[08-01 07:55:40][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 4885]g_sadpCtrl.dev_online_flg 0, g_sadpCtrl.auto_actvt_flg 1.
+[08-01 07:55:40][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:55:40][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+
+saturation level usr_param->saturation_level=50, inner_param->saturation_level=50!
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/ill_monitor/ill_monitor.c 184]g_illm.ill_level change: 2,1
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/ill_monitor/ill_monitor.c 124]switch occur counter:1
+dc_state_chg:lock_num=1
+[08-01 07:55:40][PID:808][SIPS][ERROR][netConn/sip/ysips/yateServerInterface.cpp 210]notify sips update lock num
+[08-01 07:55:40][PID:808][EZVIZ][ERROR][Ezviz2.0/base_module/ezviz_app_base.cpp 355]ezdev sdk kernel send error. ret =0xe0000002, cmd = 0x305e
+[08-01 07:55:40][PID:808][EZVIZ][ERROR][Ezviz2.0/base_module/ezviz_app_base.cpp 403]ezapp_base_send_ezviz_msg fail!!! error code =e0000002
+[08-01 07:55:40][PID:902][OTHER][ERROR][sips_db.hpp 88]sips set dev lock num:1
+[08-01 07:55:40][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 1
+[08-01 07:55:40][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 46]invalid regist param, unable to send regist info
+DDM_IOC_LED_SET_OUTPUT failed:errno is 22[Invalid argument]
+ERROR :DDM_LedIoctl
+\xC4\xDA\xBA\xCB\xB5\xF7\xD3\xC3\xB3\xF6\xB4\xED
+[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/icr_ctrl.c 47]smartIR close !!!
+\x1B[m[33.29] \x1B[1;33m[DSP] WARN|vi_isp.c|VI_ISP_SetSmartIr|107: chan 0 set smirt ir 0
+\x1B[m[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/icr_ctrl.c 265]restore(close) WDR !!!
+\x1B[m[33.29] \x1B[1;33m[DSP] WARN|capt_drv.c|Capt_drvSetVideoWdr|900: chan 0 wdr is 0
+\x1B[m[08-01 07:55:40][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/icr_ctrl.c 276]color_format_ctrl(COLOR_IMAGE)! 
+
+
+ # # ISP_SetSaturationLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetContrastLevel devices_id= 17116, setSat = 50
+
+
+ # # ISP_SetSharpenLevel devices_id= 17116, setSat = 50
+
+saturation level usr_param->saturation_level=50, inner_param->saturation_level=50!
+[08-01 07:55:41][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2210]get_mac_num ioctl error and errno=19
+[08-01 07:55:41][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipXmlProc.c 1537]get mac addr failed
+[08-01 07:55:41][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[main door line] logout request to 0.0.0.0:0
+[08-01 07:55:41][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 46]invalid regist param, unable to send regist info
+[08-01 07:55:41][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 696]send regist info request failed
+[08-01 07:55:41][PID:808][DAL_DABI][ERROR][HAL/DAL/ill_monitor/ill_monitor.c 184]g_illm.ill_level change: 1,0
+[08-01 07:55:41][PID:808][DAL_DABI][ERROR][HAL/DAL/ill_monitor/ill_monitor.c 124]switch occur counter:2
+[08-01 07:55:42][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:42][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 274]send sendPackage failed <\xD7\xA2\xB2\xE1\xCA\xA7\xB0\xDC,\xB0\xB2\xC8\xAB\xC4\xA3\xBF\xE9id\xCE\xAA[1] >
+[08-01 07:55:42][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 632]sec probe addr:1  m_bIsOnline:0
+[08-01 07:55:42][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 9 seconds for the interface[wlan0] initialization...
+[08-01 07:55:42][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:42][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:42][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:42][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+DDM_IOC_LED_SET_OUTPUT failed:errno is 22[Invalid argument]
+ERROR :DDM_LedIoctl
+\xC4\xDA\xBA\xCB\xB5\xF7\xD3\xC3\xB3\xF6\xB4\xED
+[08-01 07:55:42][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 72]switch occur counter:2
+[08-01 07:55:42][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 282]comb backlight status 1!
+DDM_IOC_LED_SET_OUTPUT failed:errno is 38[Function not implemented]
+ERROR :DDM_LedIoctl
+\xC4\xDA\xBA\xCB\xB5\xF7\xD3\xC3\xB3\xF6\xB4\xED
+[08-01 07:55:42][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 165]hoi_lable_light_set_brightness err
+[08-01 07:55:42][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/icr_ctrl.c 43]smartIR open !!!
+\x1B[m[34.638] \x1B[1;33m[DSP] WARN|vi_isp.c|VI_ISP_SetSmartIr|107: chan 0 set smirt ir 1
+\x1B[m[08-01 07:55:42][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/icr_ctrl.c 251]color_format_ctrl(BLACK_AND_WHITE)! 
+
+
+ # # ISP_SetSaturationLevel devices_id= 17116, setSat = 0
+
+
+ # # ISP_SetContrastLevel devices_id= 17116, setSat = 60
+
+
+ # # ISP_SetSharpenLevel devices_id= 17116, setSat = 100
+====current_duty = 10==
+
+saturation level usr_param->saturation_level=0, inner_param->saturation_level=50!
+\x1B[m[34.780] \x1B[1;33m[DSP] WARN|md_drv.c|HikMd_drvProc|971: chan 0,last 0 ms,cur 34780 ms,inter 34780 ms dsp cb app timesCount 0 
+\x1B[m====current_duty = 100==
+[08-01 07:55:42][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2210]get_mac_num ioctl error and errno=19
+[08-01 07:55:42][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipXmlProc.c 1537]get mac addr failed
+[08-01 07:55:42][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[pri server line] logout request to 0.0.0.0:5065
+[08-01 07:55:42][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:552  load_type:0x40002 
+
+receive url:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:42][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 622]stunServerDomain json fomat Error
+[08-01 07:55:42][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 633]stunServerPort json fomat Error
+[08-01 07:55:42][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 644]activeInterface json fomat Error
+[08-01 07:55:42][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 677]parse sdpType json fomat Error
+[08-01 07:55:42][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 687]parse sdpInfo json fomat Error
+[08-01 07:55:42][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 78]regist rsp:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:42][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 79]regist rsp body:{
+        "regRes":       {
+                "status":       0
+        }
+}
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][misc/alarmCtrl.c 584]door tamper alarm
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][misc/alarmCtrl.c 925]send ezviz change msg[0] to ui process
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 959]net status err or upload list full, save offline event
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 434]change upload to client stat to fail stat
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 440]change upload to center stat to fail stat
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 446]change upload to sip server stat to fail stat
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 452]change upload to ezviz stat to fail stat
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 458]change upload to email stat to fail stat
+[08-01 07:55:42][PID:808][ALARM_EXP][ERROR][accessControl/eventCtrl/event_ctrl.c 464]change upload to ftp stat to fail stat
+\x1B[m[35.140] \x1B[1;33m[DSP] WARN|audio_drv.c|Audio_drvSetProcParam|295: sample rate err 0, default: 8000!
+\x1B[m====current_duty = 33==
+====current_duty = 14==
+====current_duty = 10==
+[08-01 07:55:43][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 626]dev support sec_mod_num: 1 sec probe addr:2 register failed
+[08-01 07:55:43][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 31, start time = 21, pass time = 10
+[08-01 07:55:43][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:43][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 6
+[08-01 07:55:43][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 3
+[08-01 07:55:44][PID:808][DAL_DABI][ERROR][HAL/DAL/dabi/back_light_ctrl.c 72]switch occur counter:3
+[08-01 07:55:44][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 1372]Receive Regist Change Message: 2
+activeEth :  ,ipAddress 192.168.1.64 ,subnetMask 255.255.255.0 ,defaultGatewayIp 192.168.1.1
+[08-01 07:55:44][PID:808][SDKCMD][ERROR][netConn/devmgmt/devmgmt_msg.c 10553]invalid ip 0.0.0.0
+[08-01 07:55:44][PID:808][SDKCMD][ERROR][netConn/devmgmt/devmgmt_msg.c 10751]add_client_dev_to_server_mgt_list FAIL ,channel : 0
+[08-01 07:55:44][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2210]get_mac_num ioctl error and errno=19
+[08-01 07:55:44][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipXmlProc.c 1537]get mac addr failed
+[08-01 07:55:44][PID:808][SIPC][ERROR][netConn/sip/ysipc/ysipClientInterface.cpp 691]send reg line[pri server line] logout request to 0.0.0.0:5065
+[08-01 07:55:44][PID:807][GPL][ERROR][ipc_unix/gpl_process_service.c 54]gpl_receive_data: len:552  load_type:0x40002 
+
+receive url:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:44][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 622]stunServerDomain json fomat Error
+[08-01 07:55:44][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 633]stunServerPort json fomat Error
+[08-01 07:55:44][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 644]activeInterface json fomat Error
+[08-01 07:55:44][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 677]parse sdpType json fomat Error
+[08-01 07:55:44][PID:807][GPL][ERROR][VoIP/hikSipClientSolveIsapi.cpp 687]parse sdpInfo json fomat Error
+[08-01 07:55:44][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 78]regist rsp:POST /ThirdParty/SipClient/RegInfo?format=json
+[08-01 07:55:44][PID:808][GPL][ERROR][ipc_unix/voip/voipInterface.c 79]regist rsp body:{
+        "regRes":       {
+                "status":       0
+        }
+}
+[08-01 07:55:44][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:45][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:45][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 274]send sendPackage failed <\xD7\xA2\xB2\xE1\xCA\xA7\xB0\xDC,\xB0\xB2\xC8\xAB\xC4\xA3\xBF\xE9id\xCE\xAA[1] >
+[08-01 07:55:45][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 632]sec probe addr:1  m_bIsOnline:0
+[08-01 07:55:45][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 12 seconds for the interface[wlan0] initialization...
+[08-01 07:55:45][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:45][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:45][PID:808][WEBSERVER][ERROR][WebManage/websconfig.c 767]initialResource: mprCreate, maCreateServer, initialModules
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1647]Library version: 1.2 
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1648]LWS_MAX_HEADER_NAME_LENGTH: 64
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1649]LWS_MAX_HEADER_LEN: 1024
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1650]LWS_MAX_PROTOCOLS: 5
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1654]Configured without extension support
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1656]SPEC_LATEST_SUPPORTED: 13
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1657]AWAITING_TIMEOUT: 5
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1658]CIPHERS_LIST_STRING: 'HIGH:!CBC:!RC2:!MD5:!RC4:!ADH:!3DES:!aNULL'
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1659]SYSTEM_RANDOM_FILEPATH: '/dev/urandom'
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1660]LWS_MAX_ZLIB_CONN_BUFFER: 65536
+[08-01 07:55:45][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1647]Library version: 1.2 
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1648]LWS_MAX_HEADER_NAME_LENGTH: 64
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1649]LWS_MAX_HEADER_LEN: 1024
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1650]LWS_MAX_PROTOCOLS: 5
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1654]Configured without extension support
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1656]SPEC_LATEST_SUPPORTED: 13
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1657]AWAITING_TIMEOUT: 5
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1658]CIPHERS_LIST_STRING: 'HIGH:!CBC:!RC2:!MD5:!RC4:!ADH:!3DES:!aNULL'
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1659]SYSTEM_RANDOM_FILEPATH: '/dev/urandom'
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1660]LWS_MAX_ZLIB_CONN_BUFFER: 65536
+[08-01 07:55:45][PID:808][WEBSERVER][ERROR][WebManage/websconfig.c 635] ConfigServer: http=80, https_port=443, authType=2
+Add the auth->type 2
+[08-01 07:55:45][PID:808][WEB_SOCK][ERROR][../libwebsocks/lib/libwebsockets.c 1898]SSL_CTX_set_options, TLSv1_1 not enabled.
+[08-01 07:55:45][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:55:45][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+[08-01 07:55:46][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 626]dev support sec_mod_num: 1 sec probe addr:2 register failed
+[08-01 07:55:46][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:46][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+mpr/mprLib.c(4595)serviceEvents:------------------------------------
+[08-01 07:55:48][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:48][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 274]send sendPackage failed <\xD7\xA2\xB2\xE1\xCA\xA7\xB0\xDC,\xB0\xB2\xC8\xAB\xC4\xA3\xBF\xE9id\xCE\xAA[1] >
+[08-01 07:55:48][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 632]sec probe addr:1  m_bIsOnline:0
+[08-01 07:55:48][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 15 seconds for the interface[wlan0] initialization...
+[08-01 07:55:48][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:48][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:48][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:48][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:48][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 36, start time = 21, pass time = 15
+[08-01 07:55:49][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 626]dev support sec_mod_num: 1 sec probe addr:2 register failed
+[08-01 07:55:49][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:50][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:50][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:55:50][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+[08-01 07:55:51][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:51][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 274]send sendPackage failed <\xD7\xA2\xB2\xE1\xCA\xA7\xB0\xDC,\xB0\xB2\xC8\xAB\xC4\xA3\xBF\xE9id\xCE\xAA[1] >
+[08-01 07:55:51][PID:808][HW_IF][ERROR][HAL/DAL/extension_module/SecMod.cpp 632]sec probe addr:1  m_bIsOnline:0
+[08-01 07:55:51][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 18 seconds for the interface[wlan0] initialization...
+[08-01 07:55:51][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:51][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:51][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:52][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:52][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:53][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 41, start time = 21, pass time = 20
+[08-01 07:55:54][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:54][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 21 seconds for the interface[wlan0] initialization...
+[08-01 07:55:54][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:54][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:54][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:55][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:55][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:55:55][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+[08-01 07:55:56][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:57][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:57][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 24 seconds for the interface[wlan0] initialization...
+[08-01 07:55:57][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:55:57][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:55:58][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:55:58][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:55:58][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 46, start time = 21, pass time = 25
+[08-01 07:56:00][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:56:00][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 27 seconds for the interface[wlan0] initialization...
+[08-01 07:56:00][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:56:00][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:56:00][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:56:00][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:56:00][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+[08-01 07:56:01][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:56:02][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:56:03][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:56:03][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 30 seconds for the interface[wlan0] initialization...
+[08-01 07:56:03][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:56:03][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:56:03][PID:808][8021X][ERROR][wifi/wifi_ap.c 591]current time = 51, start time = 21, pass time = 30
+[08-01 07:56:04][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:56:04][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:56:05][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 2105]get_ipaddr ioctl error and errno=19
+[08-01 07:56:05][PID:808][ARP][ERROR][netConn/ipconfilct_detect.c 187]\xBB\xF1\xC8\xA1IP\xB5\xD8\xD6\xB7\xCA\xA7\xB0\xDC
+[08-01 07:56:06][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+[08-01 07:56:06][PID:808][ONVIF][ERROR][ONVIF/isdiscovery/is_discovery.c 5255]wait 33 seconds for the interface[wlan0] initialization...
+[08-01 07:56:06][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 9985]get_network_status input param error!
+[08-01 07:56:06][PID:808][OTHER][ERROR][basefun_lib/net_base_fun/netconfig.c 10299]get active interface status failed !
+[08-01 07:56:06][PID:808][EZVIZ][ERROR][Ezviz2.0/control_module/ezviz_app_control.cpp 652]TRUE != bDeviceActive.
+[08-01 07:56:07][PID:808][COMB][ERROR][HAL/DAL/extension_module/SubDev.cpp 574]rcv header err1
+\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xDF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xEF\xFF\xEF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x\xFF\xFF\xFF\xFF\xFF\xFF\x7F\xFF\xFF\0\0\0\x08\0\0\0\00\0\0\0\0\0\x08\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\x10\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+
