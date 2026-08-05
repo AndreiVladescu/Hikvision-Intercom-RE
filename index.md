@@ -95,6 +95,7 @@
 .badge-high    { background:#e67e22; color:#fff; }
 .badge-medium  { background:#f1c40f; color:#1a1a1a; }
 .badge-low     { background:#7f8c8d; color:#fff; }
+.badge-info    { background:#bdc3c7; color:#1a1a1a; }
 
 /* ── Findings list ────────────────────────────────────────────────────── */
 .findings{
@@ -275,10 +276,10 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
 
 <div class="stats">
   <div class="stat"><span class="num">19</span><span class="lbl">Total Findings</span></div>
-  <div class="stat"><span class="num">4</span><span class="lbl">Critical</span></div>
-  <div class="stat"><span class="num">9</span><span class="lbl">High</span></div>
-  <div class="stat"><span class="num">5</span><span class="lbl">Medium</span></div>
-  <div class="stat"><span class="num">1</span><span class="lbl">Low</span></div>
+  <div class="stat"><span class="num">2</span><span class="lbl">Critical</span></div>
+  <div class="stat"><span class="num">5</span><span class="lbl">High</span></div>
+  <div class="stat"><span class="num">15</span><span class="lbl">Medium</span></div>
+  <div class="stat"><span class="num">2</span><span class="lbl">Low</span></div>
   <div class="stat"><span class="num">4,000</span><span class="lbl">CVEs Version-Matched</span></div>
   <div class="stat"><span class="num">2</span><span class="lbl">Findings Demonstrated</span></div>
 </div>
@@ -286,26 +287,34 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
 > **How to read these severities.** This is a static-analysis project. With two exceptions (F-06, demonstrated; F-20, a reproducible crash under emulation), **none of these findings has been exploited end-to-end against a working device.** They establish that vulnerable code, keys, and endpoints exist *in the firmware image* — not that they are remotely reachable on a deployed unit. The CVSS scores are worst-case-if-confirmed and should be read as upper bounds on hypotheses. The full report marks the evidence class and test status of each finding, and live testing on a second, newer unit has already refuted one of them (F-22).
 
 <ul class="findings">
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-01</strong> — Hardcoded TLS private key in firmware (sharing across units unverified)</li>
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-11</strong> — Outdated software stack: 4,000 version-matched CVEs, 105 public exploits (counts are un-triaged; reachability unassessed)</li>
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260 ISAPI command injection — inferred from version string, never tested; likely inapplicable to current firmware</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260 ISAPI command injection — published NVD score; applicability inferred from a version string and never tested, likely inapplicable to current firmware</li>
   <li><span class="badge badge-critical">CRITICAL 9.1</span> <strong>F-18</strong> — sipServer SQL injection via SIP REGISTER — <code>sprintf</code> pattern traced statically, no payload ever sent</li>
-  <li><span class="badge badge-high">HIGH 8.8</span> <strong>F-12</strong> — Kernel privesc: Dirty COW + overlayfs version-match — untested, and requires a shell not yet obtained</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-09-12 (uncracked; no login service enabled by default)</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-13</strong> — Binary hardening failures: 93% lack RELRO, 84% lack stack canaries, NX absent on hicore</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-14</strong> — 300 unsafe strcpy, 41 system() calls, 2,659 format string issues in hicore alone</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-19</strong> — ISAPI serial bus passthrough: authenticated HTTP-to-RS232/RS485 bridge, no additional access control</li>
-  <li><span class="badge badge-high">HIGH 7.5</span> <strong>F-04</strong> — Cloud telemetry & phone-home endpoints hardcoded in hicore</li>
-  <li><span class="badge badge-high">HIGH 7.2</span> <strong>F-02</strong> — psh backdoor shell with 4 hardcoded RSA keys; Debug mode accessible to key holder only</li>
-  <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-15</strong> — 395 instances of weak file permissions</li>
-  <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-16</strong> — da_info hidden command surface: resetPasswd/resetParam accessible via direct invocation</li>
-  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-07</strong> — Preset SSH host keys in image (sshd off by default; cross-unit sharing unverified)</li>
-  <li><span class="badge badge-medium">MEDIUM 6.4</span> <strong>F-06</strong> — Encrypted boot script; 3DES key extracted from digicapkeyArm.ko .rodata</li>
-  <li><span class="badge badge-low">LOW 3.7</span> <strong>F-08</strong> — Dormant Dropbear SSH daemon, enableable via a legacy-named <code>enable_telnet</code> config flag (no Telnet server exists in the image)</li>
-  <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-09</strong> — Hardcoded internal Hikvision IP addresses in production binary</li>
-  <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-10</strong> — Hardcoded Chinese DNS servers (114.114.114.114 / 223.5.5.5)</li>
-  <li><span class="badge badge-medium">MEDIUM 4.5</span> <strong>F-05</strong> — Hik-Connect enrollment routes identity-linked event images to Hikvision cloud (opt-in)</li>
+  <li><span class="badge badge-high">HIGH 7.8</span> <strong>F-12</strong> — Kernel privesc: Dirty COW version-match (upstream CVE score) — untested, requires a shell not yet obtained</li>
+  <li><span class="badge badge-high">HIGH 7.8</span> <strong>F-20</strong> — Unauthenticated CPIU IPC bus in daemon_fsp_app — reproducible SIGSEGV under QEMU, no execution control shown</li>
+  <li><span class="badge badge-high">HIGH 7.4</span> <strong>F-01</strong> — Hardcoded TLS private key in firmware (device never observed serving it; cross-unit sharing unverified)</li>
+  <li><span class="badge badge-high">HIGH 7.4</span> <strong>F-23</strong> — Cloud-keyed <code>secretkey</code> ISAPI maintenance bypass — no valid token obtained</li>
+  <li><span class="badge badge-high">HIGH —</span> <strong>F-11</strong> — Outdated software stack: 4,000 version-matched CVEs (un-triaged aggregate; no single CVSS applies)</li>
+  <li><span class="badge badge-medium">MEDIUM 6.8</span> <strong>F-02</strong> — psh backdoor shell, 4 hardcoded RSA public keys; unlock needs the vendor's private key. <em>CVSS understates this — see report</em></li>
+  <li><span class="badge badge-medium">MEDIUM 6.8</span> <strong>F-22</strong> — U-Boot <code>verify=n</code> on the older unit — <strong>refuted on the newer unit</strong> (OTP-locked, signatures verify)</li>
+  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-19</strong> — ISAPI serial bus passthrough — requires admin credentials; documented integrator feature</li>
+  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-25</strong> — No CSRF protection on the web interface</li>
+  <li><span class="badge badge-medium">MEDIUM 6.4</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-09-12 (uncracked; no login service on by default)</li>
+  <li><span class="badge badge-medium">MEDIUM 5.9</span> <strong>F-24</strong> — Hardcoded tokens and predictable fallback encryption key in hicore</li>
+  <li><span class="badge badge-medium">MEDIUM 5.5</span> <strong>F-16</strong> — da_info hidden command surface: resetPasswd/resetParam via direct invocation</li>
+  <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-04</strong> — Cloud telemetry &amp; phone-home endpoints hardcoded in hicore (no traffic capture performed)</li>
+  <li><span class="badge badge-medium">MEDIUM 4.8</span> <strong>F-07</strong> — Preset SSH host keys in image (sshd off by default; cross-unit sharing unverified)</li>
+  <li><span class="badge badge-medium">MEDIUM 4.7</span> <strong>F-21</strong> — BSP encryption layer uses AES-128-ECB with a device-bound decryption oracle</li>
+  <li><span class="badge badge-medium">MEDIUM 4.6</span> <strong>F-06</strong> — Encrypted boot script; 3DES key extracted from digicapkeyArm.ko <strong>(demonstrated)</strong></li>
+  <li><span class="badge badge-medium">MEDIUM 4.4</span> <strong>F-15</strong> — 395 instances of weak file permissions (un-triaged scan result)</li>
+  <li><span class="badge badge-medium">MEDIUM 4.3</span> <strong>F-05</strong> — Hik-Connect enrollment routes identity-linked event images to Hikvision cloud (opt-in)</li>
+  <li><span class="badge badge-medium">MEDIUM —</span> <strong>F-13</strong> — Binary hardening gaps: 93% lack RELRO, 84% lack canaries (missing mitigations, not exploitable bugs — no CVSS)</li>
+  <li><span class="badge badge-medium">MEDIUM —</span> <strong>F-14</strong> — 300 strcpy, 41 system(), 2,659 format-string sites in hicore (un-triaged pattern counts — no CVSS)</li>
+  <li><span class="badge badge-low">LOW 3.3</span> <strong>F-08</strong> — Dormant Dropbear SSH daemon, enableable via a legacy-named <code>enable_telnet</code> flag (no Telnet server exists in the image)</li>
+  <li><span class="badge badge-low">LOW 3.7</span> <strong>F-10</strong> — Hardcoded Chinese DNS servers (114.114.114.114 / 223.5.5.5)</li>
+  <li><span class="badge badge-info">INFO</span> <strong>F-09</strong> — Hardcoded internal Hikvision IP addresses in production binary (no attacker-usable path)</li>
 </ul>
+
+*Rescored in the current revision — every score was re-derived from first principles against CVSS v3.1. Nineteen findings moved, one upward. The full rationale for each is in Section 5 of the report.*
 
 ---
 
