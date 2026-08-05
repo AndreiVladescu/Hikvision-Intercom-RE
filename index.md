@@ -94,6 +94,7 @@
 .badge-critical{ background:#c0392b; color:#fff; }
 .badge-high    { background:#e67e22; color:#fff; }
 .badge-medium  { background:#f1c40f; color:#1a1a1a; }
+.badge-low     { background:#7f8c8d; color:#fff; }
 
 /* ── Findings list ────────────────────────────────────────────────────── */
 .findings{
@@ -262,7 +263,7 @@ Beyond the Linux 3.18.20 kernel and ramdisk, notable files include:
 │   ├── psh          ← backdoor shell (4 hardcoded RSA public keys)
 │   └── busybox, hik debug tools
 ├── etc/
-│   ├── dropbear/    ← shared SSH host keys (identical on all units)
+│   ├── dropbear/    ← preset SSH host keys (sshd off by default)
 │   ├── shadow       ← unsalted SHA-256 root hash, unchanged since 2012
 │   └── profile      ← calls psh on every interactive login
 └── sbin/ usr/
@@ -276,18 +277,21 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
   <div class="stat"><span class="num">19</span><span class="lbl">Total Findings</span></div>
   <div class="stat"><span class="num">4</span><span class="lbl">Critical</span></div>
   <div class="stat"><span class="num">9</span><span class="lbl">High</span></div>
-  <div class="stat"><span class="num">6</span><span class="lbl">Medium</span></div>
-  <div class="stat"><span class="num">4,000</span><span class="lbl">CVEs Identified</span></div>
-  <div class="stat"><span class="num">105</span><span class="lbl">Public Exploits</span></div>
+  <div class="stat"><span class="num">5</span><span class="lbl">Medium</span></div>
+  <div class="stat"><span class="num">1</span><span class="lbl">Low</span></div>
+  <div class="stat"><span class="num">4,000</span><span class="lbl">CVEs Version-Matched</span></div>
+  <div class="stat"><span class="num">2</span><span class="lbl">Findings Demonstrated</span></div>
 </div>
 
+> **How to read these severities.** This is a static-analysis project. With two exceptions (F-06, demonstrated; F-20, a reproducible crash under emulation), **none of these findings has been exploited end-to-end against a working device.** They establish that vulnerable code, keys, and endpoints exist *in the firmware image* — not that they are remotely reachable on a deployed unit. The CVSS scores are worst-case-if-confirmed and should be read as upper bounds on hypotheses. The full report marks the evidence class and test status of each finding, and live testing on a second, newer unit has already refuted one of them (F-22).
+
 <ul class="findings">
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-01</strong> — Hardcoded TLS private key shared across all units</li>
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-11</strong> — Severely outdated software stack: 4,000 CVEs, 47 Critical, 105 public exploits</li>
-  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260: unauthenticated command injection via ISAPI endpoint (Metasploit available)</li>
-  <li><span class="badge badge-critical">CRITICAL 9.1</span> <strong>F-18</strong> — sipServer SQL injection via unauthenticated SIP REGISTER (no prepared statements)</li>
-  <li><span class="badge badge-high">HIGH 8.8</span> <strong>F-12</strong> — Kernel privilege escalation: Dirty COW + overlayfs, confirmed Metasploit modules</li>
-  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-09-12, shared across all units</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-01</strong> — Hardcoded TLS private key in firmware (sharing across units unverified)</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-11</strong> — Outdated software stack: 4,000 version-matched CVEs, 105 public exploits (counts are un-triaged; reachability unassessed)</li>
+  <li><span class="badge badge-critical">CRITICAL 9.8</span> <strong>F-17</strong> — CVE-2021-36260 ISAPI command injection — inferred from version string, never tested; likely inapplicable to current firmware</li>
+  <li><span class="badge badge-critical">CRITICAL 9.1</span> <strong>F-18</strong> — sipServer SQL injection via SIP REGISTER — <code>sprintf</code> pattern traced statically, no payload ever sent</li>
+  <li><span class="badge badge-high">HIGH 8.8</span> <strong>F-12</strong> — Kernel privesc: Dirty COW + overlayfs version-match — untested, and requires a shell not yet obtained</li>
+  <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-03</strong> — Unsalted SHA-256 root hash, unchanged since 2012-09-12 (uncracked; no login service enabled by default)</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-13</strong> — Binary hardening failures: 93% lack RELRO, 84% lack stack canaries, NX absent on hicore</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-14</strong> — 300 unsafe strcpy, 41 system() calls, 2,659 format string issues in hicore alone</li>
   <li><span class="badge badge-high">HIGH 8.1</span> <strong>F-19</strong> — ISAPI serial bus passthrough: authenticated HTTP-to-RS232/RS485 bridge, no additional access control</li>
@@ -295,9 +299,9 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
   <li><span class="badge badge-high">HIGH 7.2</span> <strong>F-02</strong> — psh backdoor shell with 4 hardcoded RSA keys; Debug mode accessible to key holder only</li>
   <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-15</strong> — 395 instances of weak file permissions</li>
   <li><span class="badge badge-high">HIGH 7.1</span> <strong>F-16</strong> — da_info hidden command surface: resetPasswd/resetParam accessible via direct invocation</li>
-  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-07</strong> — Preset SSH host keys identical across all units</li>
+  <li><span class="badge badge-medium">MEDIUM 6.5</span> <strong>F-07</strong> — Preset SSH host keys in image (sshd off by default; cross-unit sharing unverified)</li>
   <li><span class="badge badge-medium">MEDIUM 6.4</span> <strong>F-06</strong> — Encrypted boot script; 3DES key extracted from digicapkeyArm.ko .rodata</li>
-  <li><span class="badge badge-medium">MEDIUM 5.9</span> <strong>F-08</strong> — Telnet can be enabled via config; no encryption</li>
+  <li><span class="badge badge-low">LOW 3.7</span> <strong>F-08</strong> — Dormant Dropbear SSH daemon, enableable via a legacy-named <code>enable_telnet</code> config flag (no Telnet server exists in the image)</li>
   <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-09</strong> — Hardcoded internal Hikvision IP addresses in production binary</li>
   <li><span class="badge badge-medium">MEDIUM 5.3</span> <strong>F-10</strong> — Hardcoded Chinese DNS servers (114.114.114.114 / 223.5.5.5)</li>
   <li><span class="badge badge-medium">MEDIUM 4.5</span> <strong>F-05</strong> — Hik-Connect enrollment routes identity-linked event images to Hikvision cloud (opt-in)</li>
@@ -309,23 +313,25 @@ The full image was processed by [EMBA](https://github.com/e-m-b-a/emba), coverin
 
 ### Hikvision built a backdoor into every device
 
-`/bin/psh` is installed as the interactive shell for **every authenticated session** — SSH, Telnet, UART — via `/etc/profile`. It's not a shell. It presents a numeric challenge and waits for a response computed from four hardcoded 1024-bit RSA public keys embedded in the binary:
+`/bin/psh` is installed as the interactive shell for **every interactive session** — UART, and SSH where enabled — via `/etc/profile`. It's not a shell. It presents a numeric challenge and waits for a response validated against four hardcoded 1024-bit RSA public keys embedded in the binary:
 
 ```
 [PSWD][0042]:_
 ```
 
-Supply the correct answer (computable offline from the embedded keys) and the binary responds:
+Supply the correct answer and the binary responds:
 
 ```
 You know
 ```
 
-Root access granted. On any unit. Ever shipped. The string `RSA_new faild` — note the typo — confirms the key-loading code is homegrown. This is not a bug that crept in; it is an intentional Hikvision service-access mechanism.
+**To be clear about who can do that:** the binary embeds the *public* keys only. Computing a valid response requires the corresponding **private** keys, which are not in the firmware and are presumably held by Hikvision. This is not an open door for anyone who downloads the image — offline cryptanalysis of the four keys (pairwise GCD, exponent and primality checks, 2M rounds of Fermat factorization) found no weakness, and repeated attempts to escape `psh` over UART on a live unit all failed.
+
+What it *is*: a permanent, vendor-controlled root-access mechanism present on every unit shipping this firmware, surviving firmware updates, with no owner-facing way to disable or audit it. The string `RSA_new faild` — note the typo — indicates homegrown key-loading code. This is not a bug that crept in; it is an intentional service-access design.
 
 ---
 
-### Every device on the planet shares the same TLS private key
+### A TLS private key sits in plaintext in the firmware
 
 `serverkey.pem` and `servercert.pem` are baked into the firmware in plaintext — and appear in **two separate partitions**, so reflashing one doesn't fix it:
 
@@ -337,7 +343,9 @@ Key:       RSA 2048-bit, self-signed
 Serial:    8a:b4:23:17:c6:2a:20:f1
 ```
 
-Every DS-KV6113-WPE1(C) presents this same certificate. Anyone who has downloaded the firmware — which is publicly available — holds the private key for your device's TLS session.
+**What's confirmed:** the key is present, valid, and extractable from a publicly available firmware image.
+
+**What isn't:** whether the device actually serves it. Only one unit was analysed, and it was never observed presenting this certificate — it may generate a per-unit cert at activation, which would make this an unused key in flash rather than a fleet-wide TLS break. Settling it takes one `openssl s_client` against a live unit and a check of whether the serial matches `8a:b4:23:17:c6:2a:20:f1`. Until someone runs that, "every device shares one TLS key" is a hypothesis, not a result — and this page previously stated it as fact.
 
 ---
 

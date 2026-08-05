@@ -62,7 +62,7 @@ Second unit is a **newer hardware/firmware revision** than the chip-off unit (V2
 - [x] Attempted the F-22 attack path against this unit: interrupting the 1-second `bootdelay` window does **not** reach a generic U-Boot `=>` shell — lands in a vendor upgrade-menu → unauthenticated TFTP recovery flow instead. Ctrl+U (documented elsewhere as an interrupt key on an older Hikvision camera) and a genuine serial BREAK condition both tested as alternate triggers — neither reached a different shell (F-22 updated, flagged as likely specific to the older hardware revision)
 - [x] **No unrestricted shell reached on this unit via any UART-based approach tried.** Decision made to chip-off read this unit's flash directly instead of continuing live exploitation — see Phase 6. Items below remain blocked pending that:
   - [ ] Check `/etc/passwd` / `/etc/shadow` for root hash — same shared hash as F-03, or unique per unit? (now via chip-off, not live shell)
-  - [ ] Check for `enable_telnet` config flag (F-08) and whether Telnet can be toggled
+  - [ ] Check the `enable_telnet` config flag (F-08) — confirm it gates `sshd`, not Telnet (no telnetd exists in the chip-off image); toggle it and verify port 22 opens / port 23 does not
   - [ ] Attempt `da_info resetPasswd` direct invocation (F-16) on this firmware build
   - [ ] Check whether `/home/config/dev_masterkey` exists (F-23) and whether the secretkey ISAPI bypass endpoints are present in this build's `hicore`
   - [ ] Extract and statically analyze this build's actual `psh` binary (svn358439) — compare against the older build's challenge-response implementation
