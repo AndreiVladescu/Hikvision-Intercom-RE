@@ -1,0 +1,91 @@
+# Nmap 7.94SVN scan initiated Wed Aug  5 21:54:02 2026 as: nmap -sS -sV -p- -T4 -oA hik_tcp 192.0.0.65
+Nmap scan report for 192.0.0.65
+Host is up (0.0025s latency).
+Not shown: 65527 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+80/tcp   open  http        webs
+443/tcp  open  ssl/https   webs
+554/tcp  open  rtsp
+6666/tcp open  irc?
+7681/tcp open  unknown
+7682/tcp open  ssl/unknown
+8000/tcp open  ipcam       Hikvision IPCam control port
+8102/tcp open  kz-migr?
+4 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.94SVN%I=7%D=8/5%Time=6A7386DD%P=x86_64-pc-linux-gnu%r(Ge
+SF:tRequest,1FE,"HTTP/1\.0\x20302\x20Moved\x20Temporarily\r\nDate:\x20Wed,
+SF:\x2002\x20Sep\x201970\x2007:24:39\x20GMT\r\nServer:\x20webs\r\nETag:\x2
+SF:0\"9c3-a35-6577d358\"\r\nContent-Length:\x20244\r\nConnection:\x20close
+SF:\r\nX-Frame-Options:\x20SAMEORIGIN\r\nCache-Control:\x20no-store\r\nPra
+SF:gma:\x20no-cache\r\nLocation:\x20http://www\.acsvis\.com/index\.asp\r\n
+SF:\r\n<!DOCTYPE\x20html>\r\n<html><head><title>Moved\x20Temporarily</titl
+SF:e></head>\r\n<body><h1>Moved\x20Temporarily</h1>\r\n<p>The\x20document\
+SF:x20has\x20moved\x20<a\x20href=\"http://www\.acsvis\.com/index\.asp\">he
+SF:re</a>\.</p>\r\n<address>webs\x20at\x20null\x20Port\x2080</address></bo
+SF:dy>\r\n</html>\r\n")%r(HTTPOptions,BA,"HTTP/1\.0\x20200\x20OK\r\nDate:\
+SF:x20Wed,\x2002\x20Sep\x201970\x2007:24:40\x20GMT\r\nServer:\x20webs\r\nC
+SF:ontent-Type:\x20text/html\r\nConnection:\x20close\r\nX-Frame-Options:\x
+SF:20SAMEORIGIN\r\nCache-Control:\x20no-store\r\nPragma:\x20no-cache\r\n\r
+SF:\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.94SVN%T=SSL%I=7%D=8/5%Time=6A7386E3%P=x86_64-pc-linux-g
+SF:nu%r(GetRequest,200,"HTTP/1\.0\x20302\x20Moved\x20Temporarily\r\nDate:\
+SF:x20Wed,\x2002\x20Sep\x201970\x2007:24:46\x20GMT\r\nServer:\x20webs\r\nE
+SF:Tag:\x20\"9c3-a35-6577d358\"\r\nContent-Length:\x20245\r\nConnection:\x
+SF:20close\r\nX-Frame-Options:\x20SAMEORIGIN\r\nCache-Control:\x20no-store
+SF:\r\nPragma:\x20no-cache\r\nLocation:\x20https://www\.acsvis\.com/index\
+SF:.asp\r\n\r\n<!DOCTYPE\x20html>\r\n<html><head><title>Moved\x20Temporari
+SF:ly</title></head>\r\n<body><h1>Moved\x20Temporarily</h1>\r\n<p>The\x20d
+SF:ocument\x20has\x20moved\x20<a\x20href=\"https://www\.acsvis\.com/index\
+SF:.asp\">here</a>\.</p>\r\n<address>webs\x20at\x20null\x20Port\x2080</add
+SF:ress></body>\r\n</html>\r\n")%r(HTTPOptions,BA,"HTTP/1\.0\x20200\x20OK\
+SF:r\nDate:\x20Wed,\x2002\x20Sep\x201970\x2007:24:47\x20GMT\r\nServer:\x20
+SF:webs\r\nContent-Type:\x20text/html\r\nConnection:\x20close\r\nX-Frame-O
+SF:ptions:\x20SAMEORIGIN\r\nCache-Control:\x20no-store\r\nPragma:\x20no-ca
+SF:che\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port554-TCP:V=7.94SVN%I=7%D=8/5%Time=6A73872D%P=x86_64-pc-linux-gnu%r(S
+SF:IPOptions,84,"RTSP/1\.0\x20200\x20OK\r\nCSeq:\x2042\x20OPTIONS\r\nPubli
+SF:c:\x20OPTIONS,\x20DESCRIBE,\x20PLAY,\x20PAUSE,\x20SETUP,\x20TEARDOWN\r\
+SF:nDate:\x20\x20Wed,\x20Sep\x2002\x201970\x2007:25:53\x20GMT\r\n\r\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8102-TCP:V=7.94SVN%I=7%D=8/5%Time=6A7386DC%P=x86_64-pc-linux-gnu%r(
+SF:NULL,C8,"\0\0\0\xc8\0\0\0\0d1d53bf8eead91162f98635ae9c14570\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0")%r(GetRequest,C8,"\0\0\0\xc8\0\0\0\x007e39854
+SF:f5362ac254be7202648f1c1a7\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(HTTPO
+SF:ptions,C8,"\0\0\0\xc8\0\0\0\x00928fbf00ffed90abe8f2cd67f009d2f8\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(RTSPRequest,C8,"\0\0\0\xc8\0\0\0\0b047
+SF:b749fa238fd0d060fef1b56aa592\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(RP
+SF:CCheck,C8,"\0\0\0\xc8\0\0\0\x00154575ea509edc76154d8c054abc0b76\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(DNSVersionBindReqTCP,C8,"\0\0\0\xc8\0\
+SF:0\0\0e9d3425728762686b322e6662b76f97c\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0
+SF:\0");
+MAC Address: A4:D5:C2:4E:71:F3 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug  5 21:57:28 2026 -- 1 IP address (1 host up) scanned in 205.76 seconds

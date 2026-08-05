@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Wed Aug  5 21:54:02 2026 as: nmap -sS -sV -p- -T4 -oA hik_tcp 192.0.0.65
+Host: 192.0.0.65 ()	Status: Up
+Host: 192.0.0.65 ()	Ports: 80/open/tcp//http//webs/, 443/open/tcp//ssl|https//webs/, 554/open/tcp//rtsp///, 6666/open/tcp//irc?///, 7681/open/tcp/////, 7682/open/tcp//ssl|unknown///, 8000/open/tcp//ipcam//Hikvision IPCam control port/, 8102/open/tcp//kz-migr?///	Ignored State: closed (65527)
+# Nmap done at Wed Aug  5 21:57:28 2026 -- 1 IP address (1 host up) scanned in 205.76 seconds
