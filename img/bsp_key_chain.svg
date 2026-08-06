@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 620" width="940" height="620" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="arRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/>
+    </marker>
+    <style>
+      .ttl{font-size:19px;font-weight:700;fill:#111827}
+      .sub{font-size:12.5px;fill:#6b7280}
+      .box{fill:#f9fafb;stroke:#d1d5db;stroke-width:1.5;rx:9}
+      .boxok{fill:#ecfdf5;stroke:#10b981;stroke-width:1.8;rx:9}
+      .boxbad{fill:#fef2f2;stroke:#c0392b;stroke-width:2.2;rx:9}
+      .fn{font-size:13.5px;font-weight:700;fill:#111827;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+      .addr{font-size:11px;fill:#9ca3af;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+      .txt{font-size:12px;fill:#374151}
+      .mono{font-size:12.5px;fill:#111827;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+      .keyhex{font-size:15px;font-weight:700;fill:#c0392b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+      .lbl{font-size:11.5px;fill:#6b7280;font-style:italic}
+      .badlbl{font-size:12px;font-weight:700;fill:#c0392b}
+      .oklbl{font-size:12px;font-weight:700;fill:#0f766e}
+      @media (prefers-color-scheme:dark){
+        .ttl{fill:#f3f4f6}.sub{fill:#9ca3af}
+        .box{fill:#1f2937;stroke:#4b5563}
+        .boxok{fill:#052e2b;stroke:#10b981}
+        .boxbad{fill:#3f1d1d;stroke:#ef4444}
+        .fn{fill:#f9fafb}.txt{fill:#d1d5db}.mono{fill:#f3f4f6}
+        .keyhex{fill:#fca5a5}.badlbl{fill:#fca5a5}.oklbl{fill:#5eead4}.lbl{fill:#9ca3af}
+      }
+      :root[data-theme="dark"] .ttl{fill:#f3f4f6} :root[data-theme="dark"] .sub{fill:#9ca3af}
+      :root[data-theme="dark"] .box{fill:#1f2937;stroke:#4b5563}
+      :root[data-theme="dark"] .boxok{fill:#052e2b;stroke:#10b981}
+      :root[data-theme="dark"] .boxbad{fill:#3f1d1d;stroke:#ef4444}
+      :root[data-theme="dark"] .fn,:root[data-theme="dark"] .mono{fill:#f3f4f6}
+      :root[data-theme="dark"] .txt{fill:#d1d5db}
+      :root[data-theme="dark"] .keyhex,:root[data-theme="dark"] .badlbl{fill:#fca5a5}
+      :root[data-theme="dark"] .oklbl{fill:#5eead4} :root[data-theme="dark"] .lbl{fill:#9ca3af}
+      :root[data-theme="light"] .ttl{fill:#111827} :root[data-theme="light"] .sub{fill:#6b7280}
+      :root[data-theme="light"] .box{fill:#f9fafb;stroke:#d1d5db}
+      :root[data-theme="light"] .boxok{fill:#ecfdf5;stroke:#10b981}
+      :root[data-theme="light"] .boxbad{fill:#fef2f2;stroke:#c0392b}
+      :root[data-theme="light"] .fn,:root[data-theme="light"] .mono{fill:#111827}
+      :root[data-theme="light"] .txt{fill:#374151}
+      :root[data-theme="light"] .keyhex,:root[data-theme="light"] .badlbl{fill:#c0392b}
+      :root[data-theme="light"] .oklbl{fill:#0f766e} :root[data-theme="light"] .lbl{fill:#6b7280}
+    </style>
+  </defs>
+
+  <text class="ttl" x="30" y="34">libbsp_data_encrypt.so — where the AES-128 key actually comes from</text>
+  <text class="sub" x="30" y="55">The OTP check is a liveness gate, not a root of trust. The key itself is generated in software.</text>
+
+  <!-- CALLER -->
+  <rect class="box" x="30" y="80" width="255" height="66"/>
+  <text class="fn" x="45" y="106">hicore</text>
+  <text class="txt" x="45" y="126">bsp_key_encrypt / bsp_data_decrypt</text>
+  <line x1="157" y1="146" x2="157" y2="182" stroke="#6b7280" stroke-width="1.6" marker-end="url(#ar)"/>
+
+  <!-- GATE -->
+  <rect class="boxok" x="30" y="182" width="380" height="150"/>
+  <text class="fn" x="45" y="208">check_key<tspan class="addr" dx="10">@ 0xa34</tspan></text>
+  <text class="mono" x="45" y="232">open("/dev/DDM/pcp", O_RDWR)</text>
+  <text class="mono" x="45" y="252">ioctl(fd, 0x40305004, &amp;st)</text>
+  <text class="lbl" x="45" y="270">DDM_IOC_READ_OTP_STATE</text>
+  <text class="txt" x="45" y="294">Reads ONE status word. If zero:</text>
+  <text class="mono" x="45" y="313">"otp key(%d) has not been written!"</text>
+  <text class="oklbl" x="240" y="294">→ returns −3</text>
+  <text class="oklbl" x="310" y="313">→ fails closed ✓</text>
+
+  <text class="lbl" x="425" y="245">no key bytes</text>
+  <text class="lbl" x="425" y="262">ever cross</text>
+  <text class="lbl" x="425" y="279">this boundary</text>
+
+  <!-- KEY SOURCE -->
+  <rect class="boxbad" x="530" y="182" width="380" height="150"/>
+  <text class="fn" x="547" y="208">read_key<tspan class="addr" dx="10">@ 0xe20  (plat_soft.c)</tspan></text>
+  <text class="mono" x="547" y="236">for (i = 0; i &lt;= 15; i++)</text>
+  <text class="mono" x="547" y="256">    buf[i] = (i &amp; 0xFF) + 5;</text>
+  <text class="badlbl" x="547" y="288">No open(). No ioctl().</text>
+  <text class="badlbl" x="547" y="308">No hardware. A constant.</text>
+
+  <line x1="410" y1="257" x2="524" y2="257" stroke="#c0392b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arRed)"/>
+
+  <!-- KEY -->
+  <line x1="720" y1="332" x2="720" y2="372" stroke="#c0392b" stroke-width="2" marker-end="url(#arRed)"/>
+  <rect class="boxbad" x="440" y="372" width="470" height="72"/>
+  <text class="txt" x="458" y="396">Resulting AES-128 key — identical on every unit:</text>
+  <text class="keyhex" x="458" y="426">05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13 14</text>
+
+  <!-- CRYPTO -->
+  <line x1="675" y1="444" x2="675" y2="482" stroke="#6b7280" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect class="box" x="440" y="482" width="470" height="98"/>
+  <text class="fn" x="458" y="508">work_key_enc @ 0x1074 · work_key_dec @ 0xea8</text>
+  <text class="txt" x="458" y="530">zero 16-byte buffer → read_key(buf, 16) →</text>
+  <text class="mono" x="458" y="552">evp_aes_128_ecb_enc / _dec</text>
+  <text class="badlbl" x="458" y="572">ECB mode — identical plaintext blocks yield identical ciphertext</text>
+
+  <!-- verdict -->
+  <rect class="box" x="30" y="372" width="380" height="208"/>
+  <text class="fn" x="47" y="398">What this means</text>
+  <text class="txt" x="47" y="424">• One static key protects BSP data on every</text>
+  <text class="txt" x="47" y="442">  device running this firmware.</text>
+  <text class="txt" x="47" y="466">• Recoverable from the firmware image alone —</text>
+  <text class="txt" x="47" y="484">  no device access, no hardware attack needed.</text>
+  <text class="txt" x="47" y="508">• The OTP gate is real and fails closed, but it</text>
+  <text class="txt" x="47" y="526">  guards a door with no lock behind it.</text>
+  <text class="txt" x="47" y="550">• Does NOT open the ISAPI ?security=1 payloads —</text>
+  <text class="txt" x="47" y="568">  those use sdkGetAes128Key (still unrecovered).</text>
+</svg>

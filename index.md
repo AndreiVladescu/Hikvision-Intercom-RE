@@ -346,15 +346,17 @@ What it *is*: a permanent, vendor-controlled root-access mechanism present on ev
 
 ```
 Subject:   C=CN, ST=ZJ, L=HZ, O=HIKVISION, OU=HZ, CN=hikvision.com
-Issued:    2019-12-17
-Expires:   2037-12-31  (18-year validity)
-Key:       RSA 2048-bit, self-signed
-Serial:    8a:b4:23:17:c6:2a:20:f1
+Issued:    2019   (self-signed, RSA 2048-bit)
+Expires:   2037   (18-year validity)
+Serial:    [redacted]
+Key:       [redacted — private key withheld]
 ```
 
-**What's confirmed:** the key is present, valid, and extractable from a publicly available firmware image.
+**Confirmed against live hardware.** A running door station was observed serving a certificate identical to the one extracted from a *different physical unit's* firmware image, and the matching private key is present in plaintext in that image. The two units run **different firmware versions, different kernels, and different SoC vendors** — so the key is shared across units, firmware revisions, and hardware generations, not merely within one production batch.
 
-**What isn't:** whether the device actually serves it. Only one unit was analysed, and it was never observed presenting this certificate — it may generate a per-unit cert at activation, which would make this an unused key in flash rather than a fleet-wide TLS break. Settling it takes one `openssl s_client` against a live unit and a check of whether the serial matches `8a:b4:23:17:c6:2a:20:f1`. Until someone runs that, "every device shares one TLS key" is a hypothesis, not a result — and this page previously stated it as fact.
+Consequences: HTTPS to this device provides no confidentiality against anyone holding the (publicly downloadable) firmware; certificate pinning is worthless; and the exposure cannot be fixed by an update that ships another shared key.
+
+> **Key material, fingerprints, and serials are deliberately omitted from this page.** The finding is reported; the means to exploit it are not. See *Disclosure posture* at the foot of this page.
 
 ---
 
@@ -378,10 +380,10 @@ accessControl/eventCtrl/event_upload.c
 ### The root password hasn't changed since 28 December 2012
 
 ```
-root:8c9a60a87ff34a9e6c70a986aa4a9e14b237fcd4126f77107298c8afd86248d3:15595:0:99999:7:::
+root:[redacted — unsalted SHA-256 digest]:15595:0:99999:7:::
 ```
 
-Day `15595` in Unix epoch-days is **2012-09-12**. The hash is unsalted SHA-256 — the same value on every unit ever manufactured. John the Ripper couldn't crack it in an hour, but that's now irrelevant: the hash is public, and GPU-accelerated cracking against a custom wordlist can run indefinitely.
+Day `15595` in Unix epoch-days is **2012-09-12**. The hash is unsalted SHA-256, so every unit shipping this firmware carries the same value. John the Ripper did not crack it within an hour, and no remote login service is enabled by default — so this is a latent exposure rather than a live one. The digest itself is withheld here.
 
 The GECOS field — normally a human-readable name — is a 64-character hex string that appears to be a device identifier, suggesting the password was set programmatically and never intended to be changed by users.
 
@@ -445,4 +447,20 @@ The `reg_user` table contains `login_password`, `reg_password`, device serial nu
 
 ---
 
-<a class="cta" href="REPORT">Read the Full Report →</a>
+## Disclosure posture
+
+This page describes **what** was found. It deliberately omits **how to exploit it**.
+
+The full technical report — proof-of-concept commands, key material, hashes, certificate fingerprints, memory offsets, and the raw firmware image — is **not published** and is retained privately by the researcher. Findings here are summarised at a level intended to inform owners and operators of the risk, without handing a working toolkit to anyone who wants to attack a door station they do not own.
+
+Specifically withheld:
+
+- The RSA private key, its certificate serial and fingerprints
+- The root password digest
+- Login-challenge parameters and captured authentication material
+- The raw 32 MB flash image and extracted filesystems
+- Exploitation scripts and packet captures
+
+**Testing scope.** All work was performed on hardware owned outright by the researcher, on an isolated network, with no third-party device accessed at any point and no service disrupted. No vulnerability described here has been used against any system belonging to anyone else.
+
+**Contact.** Vendors, CERTs, or researchers wanting the technical detail — including Hikvision — are welcome to get in touch through this repository's issue tracker to arrange coordinated disclosure. Corrections are equally welcome; several findings on this page have already been revised or refuted by subsequent testing, and that process continues.

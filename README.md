@@ -2,13 +2,13 @@
 
 Firmware reverse engineering and security analysis of the **Hikvision DS-KV6113-WPE1(C)** IP video door station.
 
-📄 **[Read the full report →](https://andreivladescu.github.io/Hikvision-Intercom-RE/)** · [`REPORT.md`](REPORT.md)
+📄 **[Read the writeup →](https://andreivladescu.github.io/Hikvision-Intercom-RE/)**
 
 ## What this is
 
 A 32 MB SPI NOR flash image was chip-off read from a physical unit (Macronix MX25L25645G) and analysed statically — binwalk extraction, manual reversing of `hicore`, `psh`, `dec`, `sipServer`, and `daemon_fsp_app`, plus a full EMBA automated run. A second, newer unit was later wired for live UART testing.
 
-25 findings are documented in [`REPORT.md`](REPORT.md), covering a vendor-controlled backdoor shell, hardcoded cryptographic material, cloud telemetry endpoints, and an end-of-life software stack.
+25 findings are summarised on the [project page](https://andreivladescu.github.io/Hikvision-Intercom-RE/), covering a vendor-controlled backdoor shell, hardcoded cryptographic material, cloud telemetry endpoints, and an end-of-life software stack.
 
 ## Scope of the evidence — please read
 
@@ -31,7 +31,7 @@ Corrections are welcome — particularly from anyone able to test a finding agai
 
 | Path | Contents |
 |---|---|
-| `REPORT.md` | Full security report — 25 findings, SBOM, CVE cross-reference, appendices |
+| *(withheld)* | The full technical report is retained privately — see Disclosure posture |
 | `index.md`, `js/`, `img/` | GitHub Pages site — writeup and PCB photo gallery |
 | `TASKS.md` | Working task list and project phases |
 | `TEMPLATE.md` | Generic report scaffold, reusable for other devices |

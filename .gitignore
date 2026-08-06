@@ -1,4 +1,22 @@
-
+# Raw firmware and extraction artifacts — contain the vendor RSA private key,
+# the root password hash, and other recoverable secrets. Never commit these.
 /emba_logs
 /extractions
-emba_logs.zip
+firmware.bin
+*.bin
+*.BIN
+strings_output.txt
+binary_blob_data.txt
+decrypted_start.sh
+
+# Full technical report — kept local only, not published.
+REPORT.md
+
+# Live capture artifacts — decryptable sessions, credential material
+*.pcap
+*.pcapng
+nonces_8102.txt
+teo-sess.pcap
+
+# scratch
+last_session_resume

@@ -115,6 +115,16 @@ A **third, new and working** intercom will be acquired. Plan: chip-off its flash
 - [ ] SIP REGISTER with a benign injection canary in the `From:` header (F-18)
 - [ ] Update every Section 5 `Exploitability` cell with the live result — the goal is to move findings out of `Not tested`, in whichever direction the evidence points
 
+### 7.3b — How far does the shared TLS key reach? (`digicap.dav` cross-product test)
+
+F-01 is confirmed shared across 2 units / 2 firmware versions / 2 SoC platforms of the **same model**, plus (by the 11-DTB multi-model image) the wider DS-KV / DS-KH / DS-KD intercom family. Whether it extends to *other Hikvision product lines* is unproven and should not be claimed until tested. No hardware needed — vendor firmware is a public download.
+
+- [ ] Download `digicap.dav` for a **different product line** — a DS-2CD IP camera is the obvious first target; an NVR/DVR second
+- [ ] Unpack it (public `digicap.dav` unpackers exist; the container is not the raw flash layout)
+- [ ] Extract `servercert.pem` / `serverkey.pem` and compare the SHA-1 fingerprint against `6A:D4:F0:70:29:59:1D:13:D1:A8:04:F2:7F:78:8B:D8:A7:CA:08:69`
+- [ ] Also grab `digicap.dav` for this model at a **newer version than V2.2.65** — has Hikvision rotated the key since? A rotation would date the exposure window
+- [ ] Record the result either way. A match makes F-01 a company-wide finding; a mismatch bounds it to the intercom line, which is still significant and more defensible
+
 ### 7.4 — Reporting
 - [ ] Add §2.2: three-unit comparison table
 - [ ] Add a "what changed between firmware revisions" section — this is the most publishable part of the work and nobody else has it
