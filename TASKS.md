@@ -132,6 +132,39 @@ F-01 is confirmed shared across 2 units / 2 firmware versions / 2 SoC platforms 
 
 ---
 
+## Phase 8 — Open Items After Live Testing (current, 2026-08-06)
+
+Supersedes earlier phases where they conflict. Live testing closed a lot; what follows is what is actually left, ranked by value.
+
+### 8.1 — High value, cheap, not yet done
+- [ ] **F-25 — CSRF.** Still the cheapest test in the report and still never run. Log into the web UI, open a local HTML file that cross-origin POSTs to `/ISAPI/System/reboot`, see if the device reboots. ~10 minutes.
+- [ ] **F-18 — SIP SQL injection.** The largest untested claim left (CRITICAL 9.1) and it rests entirely on a `sprintf` pattern in disassembly. The SIP service can now be enabled from the web UI. Send a REGISTER with a benign canary in the `From:` header (`' OR '1'='1`, never anything destructive) and watch for a behavioural difference. A refutation is as valuable as a confirmation.
+- [ ] **Port 8102 nonce quality.** Never resolved. Collect ≥500 values, then `wc -l` vs `sort -u | wc -l` — any repeat is a weak-RNG finding. Also widen the extraction (`cut -c17-80`) since the earlier sample took only half the field. Compare against RTSP Digest nonces: both are 32 hex chars, possibly the same generator.
+- [ ] **`www.acsvis.com` redirect (§2.2).** The device was un-activated when observed. It is activated now — browse to `http://192.0.0.65/` and see whether the external redirect persists. If it does, it is a real finding; if not, it was a first-run placeholder.
+
+### 8.2 — Service toggles not yet exercised
+- [ ] **FTP** — enable, check whether credentials cross the wire in cleartext.
+- [ ] **Wi-Fi hotspot** — check for a default/derivable PSK. `wpa.bin` was the only mode-`600` file in the config partition, which suggests it holds the key.
+- [ ] **Hik-Connect verification code.** The 6-character code (`123456` as set here) encrypts the Hik-Connect video stream. Default codes are often printed on the device label, exactly like the `JAPQRC` export code. Small keyspace protecting a live camera feed — worth characterising.
+- [ ] **Port 7681 WebSocket.** Unauthenticated upgrade confirmed (§2.3); the message schema was never mapped. Unauthenticated unmapped API on a door station.
+
+### 8.3 — No hardware needed
+- [ ] **`digicap.dav` cross-product test** (see 7.3b). Does the shared TLS key (F-01) extend beyond the intercom line to cameras and NVRs? Public download, no device required. Would decide whether F-01 is a product-line or company-wide finding.
+
+### 8.4 — Blocked on a shell (none obtained on either unit)
+- [ ] F-16 (`da_info resetPasswd`), F-20 (CPIU IPC heap write), F-12 (kernel privesc), F-15 (weak permissions) — all require local code execution. SSH is now enabled but `admin` is not a system account and `root`'s password is the uncracked F-03 hash.
+- [ ] **F-03 — root hash.** SSH now provides a live target, but the hash resisted an hour of JTR. Sustained GPU cracking is the only route.
+
+### 8.5 — Blocked on the ISAPI AES key
+- [ ] **Recover `sdkGetAes128Key`.** `get_fisrt_level_cipher_key` @ `0x1d426c` is decompiled (PBKDF2-HMAC-SHA256, NULL salt, 5000 iterations, `"%s_%s"` with a `"password"` fallback — §2.6), but its two inputs are runtime config fields. Likely readable from `dev.bin`. Recovering the key would decrypt the PII fields in §2.6/§2.7 and close F-21/F-24 dynamically.
+- [ ] **Trace the second key path** at `0x205b9c` — C++ routine, probably the AccessControl owner.
+- [ ] **F-23 post-decryption branch.** Not refuted, only "not demonstrated". The code path after a `secretkey` successfully decrypts was never traced.
+
+### 8.6 — Out of scope, disclosure only
+- **Do not test** whether Hikvision's MQTT broker accepts arbitrary device serials with password `test` (F-29). That is vendor production infrastructure, not owned hardware. Report it; do not probe it.
+
+---
+
 ## Known CVEs to Cross-Reference
 | CVE | Description |
 |-----|-------------|
